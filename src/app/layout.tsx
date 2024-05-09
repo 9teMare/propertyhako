@@ -1,22 +1,36 @@
-import type {Metadata} from 'next';
-import {JetBrains_Mono} from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import "../styles/globals.css";
 
-const jetBrainsMono = JetBrains_Mono({subsets: ['latin']});
+import { Inter as FontSans, Arimo, Libre_Franklin } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+// const arimo = Arimo({
+//     subsets: ["latin"],
+//     display: "swap",
+// });
+
+// const libre_franklin = Libre_Franklin({
+//     subsets: ["latin"],
+//     display: "swap",
+// });
+const fontSans = FontSans({
+    subsets: ["latin"],
+    variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
-  title: 'Juno / Next.js Example',
-  description: 'Welcome to my app!'
+    title: "Chain of Thoughts",
+    description: "Your Chain of Thoughts start here!",
 };
 
 export default function RootLayout({
-  children
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${jetBrainsMono.className} bg-white dark:bg-black`}>{children}</body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>{children}</body>
+        </html>
+    );
 }
