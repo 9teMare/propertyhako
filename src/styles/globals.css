@@ -74,3 +74,42 @@
       @apply bg-background text-foreground;
     }
   }
+
+
+@layer components {
+  .header-1 {
+    @apply text-5xl font-bold leading-[56px] font-header
+  }
+  .header-2 {
+    @apply text-4xl font-bold leading-[44px] font-header
+  }
+  .header-3 {
+    @apply text-3xl font-bold leading-[38px] font-header
+  }
+  .header-4 {
+    @apply text-2xl font-semibold leading-[30px] font-header
+  }
+  .header-5 {
+    @apply text-xl font-semibold leading-[26px] font-header
+  }
+  .body-1 {
+    @apply text-lg font-normal leading-[26px] font-body
+  }
+  .body-2 {
+    @apply text-[15px] font-normal leading-[22px] font-body
+  }
+  .body-3 {
+    @apply text-[13px] font-normal leading-[20px] font-body
+  }
+  .body-4 {
+    @apply text-[12px] font-normal leading-[20px] font-body
+  }
+  .brand {
+    @apply tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+  }
+  .border-gradient {
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, #6366f1, #a855f7, #ec4899) 1;
+  }
+}

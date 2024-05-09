@@ -1,3 +1,5 @@
+"use client";
+
 import ThemeToggle from "@/components/theme-toggle";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowRightIcon, BookLockIcon, BookOpenIcon, KeyIcon, ScaleIcon } from "lucide-react";
@@ -9,11 +11,11 @@ export default function Page() {
         <div className="relative flex min-h-[100dvh] snap-mandatory overflow-y-scroll flex-col overflow-hidden bg-gradient-to-br dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-white stoke-black text-[#373737]">
             <section className="container min-h-screen snap-start mx-auto flex flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
                 <div className="z-10 max-w-3xl text-center">
-                    <div className="flex-col w-full text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                    <div className="flex-col w-full text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl header-1">
                         <span className="flex flex-col md:flex-row items-center">
                             <h1>Your&nbsp;</h1>
                             <span className="flex w-fit sm:flex-col md:flex-row">
-                                <h1 className="w-full drop-shadow-lg text-4xl font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient-x">
+                                <h1 className="w-full drop-shadow-lg text-4xl font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] brand animate-gradient-x">
                                     Chain of Thoughts
                                 </h1>
                                 <ThemeToggle className="stroke-pink-500 stroke-[3px]" />
@@ -22,7 +24,7 @@ export default function Page() {
 
                         <h1>Start Here</h1>
                     </div>
-                    <p className="max-w-2xl mt-6 text-lg leading-8 dark:text-gray-300 text-[#1c1c1c] text-center">
+                    <p className="max-w-2xl mt-6 text-lg leading-8 dark:text-gray-300 text-[#1c1c1c] text-center body-1">
                         Revolutionize note sharing experience with our blockchain-powered, AI-driven platform. Share, store, and organize your school
                         notes securely and efficiently.
                     </p>
@@ -152,7 +154,7 @@ export default function Page() {
 
                         <div className="flex flex-col items-center">
                             <svg className="h-20" width="219" height="40" viewBox="0 0 219 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_8683_62477)">
+                                <g clipPath="url(#clip0_8683_62477)">
                                     <path
                                         d="M69.5606 33.234C63.7777 33.234 57.6722 29.4534 54.6754 26.711C51.3977 23.7104 42.3941 13.9438 42.3543 13.9002C36.4499 7.31258 28.511 0 20.5911 0C11.0523 0 2.73196 6.60657 0.568359 15.3578C0.733476 14.7808 3.76631 6.76409 15.1499 6.76409C20.9328 6.76409 27.0383 10.5447 30.035 13.2872C33.3127 16.2877 42.3163 26.0543 42.3562 26.0979C48.2605 32.6855 56.1994 39.9981 64.1212 39.9981C73.66 39.9981 81.9785 33.3915 84.144 24.6404C83.9789 25.2173 80.946 33.234 69.5625 33.234H69.5606Z"
                                         fill="#29AAE1"
@@ -236,8 +238,8 @@ export default function Page() {
                                         y2="8.53484"
                                         gradientUnits="userSpaceOnUse"
                                     >
-                                        <stop offset="0.22" stop-color="#EC1E79" />
-                                        <stop offset="0.89" stop-color="#522784" />
+                                        <stop offset="0.22" stopColor="#EC1E79" />
+                                        <stop offset="0.89" stopColor="#522784" />
                                     </linearGradient>
                                     <linearGradient
                                         id="paint1_linear_8683_62477"
@@ -247,8 +249,8 @@ export default function Page() {
                                         y2="31.4823"
                                         gradientUnits="userSpaceOnUse"
                                     >
-                                        <stop offset="0.21" stop-color="#F05A24" />
-                                        <stop offset="0.68" stop-color="#FAAF3B" />
+                                        <stop offset="0.21" stopColor="#F05A24" />
+                                        <stop offset="0.68" stopColor="#FAAF3B" />
                                     </linearGradient>
                                     <clipPath id="clip0_8683_62477">
                                         <rect width="218.666" height="40" fill="white" />
@@ -264,7 +266,7 @@ export default function Page() {
 
                         <div className="flex flex-col items-center">
                             <svg className="scale-[60%] h-20 dark:block hidden" viewBox="0 0 1180 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_10145_290550)">
+                                <g clipPath="url(#clip0_10145_290550)">
                                     <path
                                         d="M367.44 153.84C367.44 206.16 401.04 242.64 447.6 242.64C494.16 242.64 527.76 206.16 527.76 153.84C527.76 101.52 494.16 65.04 447.6 65.04C401.04 65.04 367.44 101.52 367.44 153.84ZM497.04 153.84C497.04 191.28 476.64 215.52 447.6 215.52C418.56 215.52 398.16 191.28 398.16 153.84C398.16 116.4 418.56 92.16 447.6 92.16C476.64 92.16 497.04 116.4 497.04 153.84Z"
                                         fill="white"

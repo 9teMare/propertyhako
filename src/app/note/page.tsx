@@ -1,10 +1,10 @@
 "use client";
 
-import { Auth } from "@/components/auth";
 import { Background } from "@/components/background";
 import { Footer } from "@/components/footer";
 import { Modal } from "@/components/modal";
 import { Table } from "@/components/table";
+import AuthProvider from "@/providers/AuthProvider";
 import { initJuno } from "@junobuild/core-peer";
 import { useEffect } from "react";
 
@@ -13,10 +13,6 @@ export default function Home() {
         (async () =>
             await initJuno({
                 satelliteId: process.env.NEXT_PUBLIC_JUNO_SATELLITE_ID as string,
-                // container: process.env.NEXT_PUBLIC_CONTAINER,
-                // workers: {
-                //     auth: true,
-                // },
             }))();
     }, []);
 
@@ -33,11 +29,11 @@ export default function Home() {
                         , showcasing a practical application of these technologies.
                     </p>
 
-                    <Auth>
+                    <AuthProvider>
                         <Table />
 
                         <Modal />
-                    </Auth>
+                    </AuthProvider>
                 </main>
 
                 <Footer />

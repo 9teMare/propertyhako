@@ -4,9 +4,10 @@ export default function Page() {
     return (
         <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white">
             <div className="space-y-2">
-                <h1 className="text-2xl font-bold">Dashboard</h1>
+                <h1 className="text-2xl font-bold">My</h1>
                 <p className="text-gray-500 dark:text-gray-400">View and manage your projects here.</p>
             </div>
+
             <div className="grid gap-6">
                 <Card>
                     <CardHeader>
