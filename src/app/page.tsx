@@ -6,13 +6,13 @@ import { SVGProps } from "react";
 
 export default function Page() {
     return (
-        <div className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-gradient-to-br dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-white stoke-black text-[#373737]">
-            <section className="container min-h-screen mx-auto flex flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+        <div className="relative flex min-h-[100dvh] snap-mandatory overflow-y-scroll flex-col overflow-hidden bg-gradient-to-br dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-white stoke-black text-[#373737]">
+            <section className="container min-h-screen snap-start mx-auto flex flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
                 <div className="z-10 max-w-3xl text-center">
                     <div className="flex-col w-full text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                        <span className="flex flex-row items-center">
+                        <span className="flex flex-col md:flex-row items-center">
                             <h1>Your&nbsp;</h1>
-                            <span className="flex w-fit">
+                            <span className="flex w-fit sm:flex-col md:flex-row">
                                 <h1 className="w-full drop-shadow-lg text-4xl font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient-x">
                                     Chain of Thoughts
                                 </h1>
@@ -46,7 +46,7 @@ export default function Page() {
 
             <section
                 id="features"
-                className="dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] flex justify-center items-center min-h-screen py-12 sm:py-16 lg:py-20"
+                className="snap-start dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] flex justify-center items-center min-h-screen py-12 sm:py-16 lg:py-20"
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">

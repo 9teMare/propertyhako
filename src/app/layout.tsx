@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 
-import { Inter as FontSans, Arimo, Libre_Franklin } from "next/font/google";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
+import { Inter as FontSans } from "next/font/google";
 
-// const arimo = Arimo({
-//     subsets: ["latin"],
-//     display: "swap",
-// });
-
-// const libre_franklin = Libre_Franklin({
-//     subsets: ["latin"],
-//     display: "swap",
-// });
 const fontSans = FontSans({
     subsets: ["latin"],
     variable: "--font-sans",
@@ -31,7 +22,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+            <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)} suppressHydrationWarning>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     {children}
                 </ThemeProvider>
