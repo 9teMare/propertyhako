@@ -3,6 +3,7 @@ import "../styles/globals.css";
 
 import { Inter as FontSans, Arimo, Libre_Franklin } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // const arimo = Arimo({
 //     subsets: ["latin"],
@@ -30,7 +31,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>{children}</body>
+            <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     );
 }

@@ -1,3 +1,4 @@
+import ThemeToggle from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
@@ -11,7 +12,7 @@ export default function Page() {
                 <div className="flex items-center justify-between">
                     <h2 className="text-xl font-bold">Dashboard</h2>
                     <Button size="icon" variant="ghost">
-                        <SearchIcon className="h-5 w-5" />
+                        <ThemeToggle className="h-[1.5rem] w-[1.5rem]" />
                         <span className="sr-only">Search</span>
                     </Button>
                 </div>

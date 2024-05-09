@@ -1,34 +1,40 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ThemeToggle from "@/components/theme-toggle";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowRightIcon, BookLockIcon, BookOpenIcon, KeyIcon, ScaleIcon } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { SVGProps } from "react";
 
 export default function Page() {
     return (
-        <div className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-gradient-to-br from-[#0D1117] to-[#0E1218] text-white">
+        <div className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-gradient-to-br dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-white stoke-black text-[#373737]">
             <section className="container min-h-screen mx-auto flex flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-                <div className="z-10 max-w-2xl text-center">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                        Your&nbsp;
-                        <span className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient-x">
-                            Chain of Thoughts
+                <div className="z-10 max-w-3xl text-center">
+                    <div className="flex-col w-full text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                        <span className="flex flex-row items-center">
+                            <h1>Your&nbsp;</h1>
+                            <span className="flex w-fit">
+                                <h1 className="w-full drop-shadow-lg text-4xl font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient-x">
+                                    Chain of Thoughts
+                                </h1>
+                                <ThemeToggle className="stroke-pink-500 stroke-[3px]" />
+                            </span>
                         </span>
-                        <br className="hidden sm:inline" /> Start Here
-                    </h1>
-                    <p className="mt-6 text-lg leading-8 text-gray-300">
+
+                        <h1>Start Here</h1>
+                    </div>
+                    <p className="max-w-2xl mt-6 text-lg leading-8 dark:text-gray-300 text-[#1c1c1c] text-center">
                         Revolutionize note sharing experience with our blockchain-powered, AI-driven platform. Share, store, and organize your school
                         notes securely and efficiently.
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Link
-                            className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                            className="rounded-md drop-shadow-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                             href="/dashboard"
                         >
                             Get Started
                         </Link>
                         <Link
-                            className="text-sm font-semibold leading-6 flex justify-center items-center gap-1 text-gray-300 hover:text-gray-200"
+                            className="text-sm font-semibold leading-6 flex justify-center items-center gap-1 dark:text-gray-300 text-[#1c1c1c] dark:hover:text-gray-200 hover:text-[#363636]"
                             href="#features"
                         >
                             Learn more
@@ -38,11 +44,14 @@ export default function Page() {
                 </div>
             </section>
 
-            <section id="features" className="bg-[#0E1218] flex justify-center items-center min-h-screen py-12 sm:py-16 lg:py-20">
+            <section
+                id="features"
+                className="dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] flex justify-center items-center min-h-screen py-12 sm:py-16 lg:py-20"
+            >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Key Features</h2>
-                        <p className="mt-4 text-lg leading-8 text-gray-300">
+                        <p className="mt-4 text-lg leading-8 ">
                             Discover how our Chain of Thoughts platform can revolutionize your note-taking experience.
                         </p>
                     </div>
@@ -52,7 +61,7 @@ export default function Page() {
                                 <BookOpenIcon className="h-full w-full" />
                             </div>
                             <h3 className="mt-6 text-lg font-semibold">Study-to-Earn</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 Groundbreaking school-based incentivization, start earning with your notes when endorsed by others.
                             </p>
                         </div>
@@ -62,7 +71,7 @@ export default function Page() {
                                 <KeyIcon className="h-full w-full" />
                             </div>
                             <h3 className="mt-6 text-lg font-semibold">Permissioned Guild</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 Only people in the same module can endorse your notes, ensuring quality and relevance.
                             </p>
                         </div>
@@ -72,7 +81,7 @@ export default function Page() {
                                 <BookLockIcon className="h-full w-full" />
                             </div>
                             <h3 className="mt-6 text-lg font-semibold">Secure Note Sharing</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 Share your notes without revealing who you are. Be a school hero in the dark.
                             </p>
                         </div>
@@ -82,7 +91,7 @@ export default function Page() {
                                 <DatabaseIcon className="h-full w-full" />
                             </div>
                             <h3 className="mt-6 text-lg font-semibold">Decentralized Storage</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 Store your notes securely on a decentralized network, ensuring privacy and accessibility.
                             </p>
                         </div>
@@ -92,7 +101,7 @@ export default function Page() {
                                 <CpuIcon className="h-full w-full" />
                             </div>
                             <h3 className="mt-6 text-lg font-semibold">AI-Powered Organization</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 Let our AI assistant help you organize and summarize your notes for easy retrieval.
                             </p>
                         </div>
@@ -102,7 +111,7 @@ export default function Page() {
                                 <ScaleIcon className="h-full w-full" />
                             </div>
                             <h3 className="mt-6 text-lg font-semibold">Integrity</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 Our AI ensures all the content do not violate academic integrity, while providing uncensored access to knowledge.
                             </p>
                         </div>
@@ -110,11 +119,11 @@ export default function Page() {
                 </div>
             </section>
 
-            <section className="bg-[#0E1218] min-h-screen flex justify-center items-center py-12 sm:py-16 lg:py-20">
+            <section className="dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] min-h-screen flex justify-center items-center py-12 sm:py-16 lg:py-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Powered by the best</h2>
-                        <p className="mt-4 text-lg leading-8 text-gray-300">Discover how we built the Chain of Thoughts.</p>
+                        <p className="mt-4 text-lg leading-8">Discover how we built the Chain of Thoughts.</p>
                     </div>
 
                     <div className="mt-32 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -136,7 +145,7 @@ export default function Page() {
                                 </g>
                             </svg>
                             <h3 className="mt-6 text-lg font-semibold">Juno</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 An open-source Blockchain-as-a-Service platform, empowers the Backbone of Chain of Thoughts.
                             </p>
                         </div>
@@ -156,57 +165,66 @@ export default function Page() {
                                         d="M42.3536 13.9002C42.3745 13.9248 44.967 16.7356 47.8746 19.8026C49.446 17.937 51.7102 15.3957 54.3122 13.1163C59.1632 8.86506 62.3156 7.97305 64.1186 7.97305C70.9207 7.97305 76.4701 13.3688 76.4701 20C76.4701 26.5933 70.9283 31.9852 64.1186 32.027C63.8719 32.027 63.572 32.0023 63.2114 31.9377C65.2574 32.7235 67.4305 33.2359 69.5599 33.2359C80.9416 33.2359 83.9744 25.223 84.1414 24.6422C84.5096 23.1505 84.707 21.598 84.707 20C84.707 8.97134 75.4623 0 64.1186 0C59.3891 0 54.2401 2.42361 48.7837 7.2063C46.2044 9.46669 43.9687 11.8846 42.2891 13.8281C42.3099 13.8527 42.3327 13.8755 42.3536 13.9002Z"
                                         fill="url(#paint1_linear_8683_62477)"
                                     />
-                                    <path d="M93.9102 17.5973V0.516235H98.5125V17.5973H93.9102Z" fill="white" />
+                                    <path d="M93.9102 17.5973V0.516235H98.5125V17.5973H93.9102Z" className="dark:fill-white fill-black" />
                                     <path
                                         d="M111.256 17.5973L105.329 7.45493V17.5973H100.873V0.516235H106.077L111.401 9.79124V0.516235H115.882V17.5973H111.256Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
-                                    <path d="M126.29 4.7808V17.5973H121.761V4.7808H116.846V0.516235H131.228V4.7808H126.29Z" fill="white" />
+                                    <path
+                                        d="M126.29 4.7808V17.5973H121.761V4.7808H116.846V0.516235H131.228V4.7808H126.29Z"
+                                        className="dark:fill-white fill-black"
+                                    />
                                     <path
                                         d="M132.193 17.5973V0.516235H143.131V4.4183H136.674V7.11711H142.552V10.8749H136.674V13.6212H143.178V17.5954H132.193V17.5973Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M144.937 17.5973V0.516235H152.14C155.609 0.516235 157.873 2.82977 157.873 6.00874C157.873 8.32227 156.596 10.0323 154.717 10.7781L157.946 17.5954H153.055L150.356 11.4045H149.416V17.5954H144.936L144.937 17.5973ZM151.297 7.937C152.647 7.937 153.345 7.16645 153.345 6.08276C153.345 4.99906 152.647 4.25129 151.297 4.25129H149.418V7.937H151.297Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M169.559 17.5973L163.632 7.45493V17.5973H159.176V0.516235H164.38L169.703 9.79124V0.516235H174.184V17.5973H169.559Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M176.156 17.5973V0.516235H187.094V4.4183H180.637V7.11711H186.515V10.8749H180.637V13.6212H187.141V17.5954H176.156V17.5973Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
-                                    <path d="M197.336 4.7808V17.5973H192.808V4.7808H187.893V0.516235H202.275V4.7808H197.336Z" fill="white" />
+                                    <path
+                                        d="M197.336 4.7808V17.5973H192.808V4.7808H187.893V0.516235H202.275V4.7808H197.336Z"
+                                        className="dark:fill-white fill-black"
+                                    />
                                     <path
                                         d="M96.8855 30.6984C96.8855 33.5415 98.9087 35.1794 100.981 35.1794C103.342 35.1794 104.354 33.7104 104.716 32.5052L108.956 33.7332C108.282 36.2631 106.016 39.5882 100.958 39.5882C96.2118 39.5882 92.2129 36.1435 92.2129 30.7231C92.2129 25.3027 96.2839 21.7859 100.911 21.7859C105.826 21.7859 108.066 24.7732 108.764 27.3278L104.597 28.7493C104.283 27.6162 103.369 26.1226 100.958 26.1226C99.0301 26.1226 96.8874 27.5916 96.8874 30.7003L96.8855 30.6984Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M117.725 21.7859C122.423 21.7859 126.495 25.1585 126.495 30.7003C126.495 36.2422 122.424 39.6147 117.725 39.6147C113.026 39.6147 108.955 36.2422 108.955 30.7003C108.955 25.1585 113.026 21.7859 117.725 21.7859ZM117.725 35.2534C119.726 35.2534 121.846 33.8318 121.846 30.6757C121.846 27.5195 119.726 26.1473 117.725 26.1473C115.725 26.1473 113.605 27.5688 113.605 30.6757C113.605 33.7825 115.725 35.2534 117.725 35.2534Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M143.02 39.2276V28.6506L139.285 39.2276H135.718L132.008 28.7721V39.2276H127.719V22.1465H133.718L137.548 32.5546L141.209 22.1465H147.377V39.2276H143.016H143.02Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M153.834 33.3972V39.2276H149.354V22.1465H156.171C159.737 22.1465 162.17 24.4828 162.17 27.7833C162.17 31.0837 159.737 33.3972 156.171 33.3972H153.834ZM155.594 29.6622C156.774 29.6622 157.642 28.9637 157.642 27.8079C157.642 26.6521 156.774 25.929 155.594 25.929H153.859V29.6641H155.594V29.6622Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M163.062 32.9645V22.1465H167.568V32.8184C167.568 34.5056 168.435 35.3957 169.929 35.3957C171.423 35.3957 172.265 34.5037 172.265 32.8184V22.1465H176.771V32.9645C176.771 37.2518 173.903 39.6147 169.929 39.6147C165.955 39.6147 163.062 37.2537 163.062 32.9645Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
-                                    <path d="M187.01 26.4111V39.2276H182.482V26.4111H177.566V22.1465H191.949V26.4111H187.01Z" fill="white" />
+                                    <path
+                                        d="M187.01 26.4111V39.2276H182.482V26.4111H177.566V22.1465H191.949V26.4111H187.01Z"
+                                        className="dark:fill-white fill-black"
+                                    />
                                     <path
                                         d="M192.912 39.2276V22.1465H203.85V26.0486H197.393V28.7474H203.271V32.5052H197.393V35.2515H203.897V39.2257H192.912V39.2276Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                     <path
                                         d="M205.658 39.2276V22.1465H212.861C216.33 22.1465 218.594 24.46 218.594 27.639C218.594 29.9526 217.317 31.6626 215.438 32.4084L218.666 39.2257H213.775L211.077 33.0347H210.137V39.2257H205.656L205.658 39.2276ZM212.018 29.5673C213.367 29.5673 214.066 28.7967 214.066 27.713C214.066 26.6293 213.367 25.8816 212.018 25.8816H210.139V29.5673H212.018Z"
-                                        fill="white"
+                                        className="dark:fill-white fill-black"
                                     />
                                 </g>
                                 <defs>
@@ -239,13 +257,13 @@ export default function Page() {
                             </svg>
 
                             <h3 className="mt-6 text-lg font-semibold">ICP</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7  text-center">
                                 The Internet Computer reinvents compute on blockchain, providing a secure and scalable platform for Chain of Thoughts.
                             </p>
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <svg className="scale-[60%] h-20" viewBox="0 0 1180 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg className="scale-[60%] h-20 dark:block hidden" viewBox="0 0 1180 320" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_10145_290550)">
                                     <path
                                         d="M367.44 153.84C367.44 206.16 401.04 242.64 447.6 242.64C494.16 242.64 527.76 206.16 527.76 153.84C527.76 101.52 494.16 65.04 447.6 65.04C401.04 65.04 367.44 101.52 367.44 153.84ZM497.04 153.84C497.04 191.28 476.64 215.52 447.6 215.52C418.56 215.52 398.16 191.28 398.16 153.84C398.16 116.4 418.56 92.16 447.6 92.16C476.64 92.16 497.04 116.4 497.04 153.84Z"
@@ -280,8 +298,18 @@ export default function Page() {
                                 </defs>
                             </svg>
 
+                            <svg className="scale-[60%] h-20 dark:hidden block" viewBox="0 0 1180 320" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m367.44 153.84c0 52.32 33.6 88.8 80.16 88.8s80.16-36.48 80.16-88.8-33.6-88.8-80.16-88.8-80.16 36.48-80.16 88.8zm129.6 0c0 37.44-20.4 61.68-49.44 61.68s-49.44-24.24-49.44-61.68 20.4-61.68 49.44-61.68 49.44 24.24 49.44 61.68z" />
+                                <path d="m614.27 242.64c35.28 0 55.44-29.76 55.44-65.52s-20.16-65.52-55.44-65.52c-16.32 0-28.32 6.48-36.24 15.84v-13.44h-28.8v169.2h28.8v-56.4c7.92 9.36 19.92 15.84 36.24 15.84zm-36.96-69.12c0-23.76 13.44-36.72 31.2-36.72 20.88 0 32.16 16.32 32.16 40.32s-11.28 40.32-32.16 40.32c-17.76 0-31.2-13.2-31.2-36.48z" />
+                                <path d="m747.65 242.64c25.2 0 45.12-13.2 54-35.28l-24.72-9.36c-3.84 12.96-15.12 20.16-29.28 20.16-18.48 0-31.44-13.2-33.6-34.8h88.32v-9.6c0-34.56-19.44-62.16-55.92-62.16s-60 28.56-60 65.52c0 38.88 25.2 65.52 61.2 65.52zm-1.44-106.8c18.24 0 26.88 12 27.12 25.92h-57.84c4.32-17.04 15.84-25.92 30.72-25.92z" />
+                                <path d="m823.98 240h28.8v-73.92c0-18 13.2-27.6 26.16-27.6 15.84 0 22.08 11.28 22.08 26.88v74.64h28.8v-83.04c0-27.12-15.84-45.36-42.24-45.36-16.32 0-27.6 7.44-34.8 15.84v-13.44h-28.8z" />
+                                <path d="m1014.17 67.68-65.28 172.32h30.48l14.64-39.36h74.4l14.88 39.36h30.96l-65.28-172.32zm16.8 34.08 27.36 72h-54.24z" />
+                                <path d="m1163.69 68.18h-30.72v172.32h30.72z" />
+                                <path d="m297.06 130.97c7.26-21.79 4.76-45.66-6.85-65.48-17.46-30.4-52.56-46.04-86.84-38.68-15.25-17.18-37.16-26.95-60.13-26.81-35.04-.08-66.13 22.48-76.91 55.82-22.51 4.61-41.94 18.7-53.31 38.67-17.59 30.32-13.58 68.54 9.92 94.54-7.26 21.79-4.76 45.66 6.85 65.48 17.46 30.4 52.56 46.04 86.84 38.68 15.24 17.18 37.16 26.95 60.13 26.8 35.06.09 66.16-22.49 76.94-55.86 22.51-4.61 41.94-18.7 53.31-38.67 17.57-30.32 13.55-68.51-9.94-94.51zm-120.28 168.11c-14.03.02-27.62-4.89-38.39-13.88.49-.26 1.34-.73 1.89-1.07l63.72-36.8c3.26-1.85 5.26-5.32 5.24-9.07v-89.83l26.93 15.55c.29.14.48.42.52.74v74.39c-.04 33.08-26.83 59.9-59.91 59.97zm-128.84-55.03c-7.03-12.14-9.56-26.37-7.15-40.18.47.28 1.3.79 1.89 1.13l63.72 36.8c3.23 1.89 7.23 1.89 10.47 0l77.79-44.92v31.1c.02.32-.13.63-.38.83l-64.41 37.19c-28.69 16.52-65.33 6.7-81.92-21.95zm-16.77-139.09c7-12.16 18.05-21.46 31.21-26.29 0 .55-.03 1.52-.03 2.2v73.61c-.02 3.74 1.98 7.21 5.23 9.06l77.79 44.91-26.93 15.55c-.27.18-.61.21-.91.08l-64.42-37.22c-28.63-16.58-38.45-53.21-21.95-81.89zm221.26 51.49-77.79-44.92 26.93-15.54c.27-.18.61-.21.91-.08l64.42 37.19c28.68 16.57 38.51 53.26 21.94 81.94-7.01 12.14-18.05 21.44-31.2 26.28v-75.81c.03-3.74-1.96-7.2-5.2-9.06zm26.8-40.34c-.47-.29-1.3-.79-1.89-1.13l-63.72-36.8c-3.23-1.89-7.23-1.89-10.47 0l-77.79 44.92v-31.1c-.02-.32.13-.63.38-.83l64.41-37.16c28.69-16.55 65.37-6.7 81.91 22 6.99 12.12 9.52 26.31 7.15 40.1zm-168.51 55.43-26.94-15.55c-.29-.14-.48-.42-.52-.74v-74.39c.02-33.12 26.89-59.96 60.01-59.94 14.01 0 27.57 4.92 38.34 13.88-.49.26-1.33.73-1.89 1.07l-63.72 36.8c-3.26 1.85-5.26 5.31-5.24 9.06l-.04 89.79zm14.63-31.54 34.65-20.01 34.65 20v40.01l-34.65 20-34.65-20z" />
+                            </svg>
+
                             <h3 className="mt-6 text-lg font-semibold">Open AI</h3>
-                            <p className="mt-2 text-base leading-7 text-gray-300 text-center">
+                            <p className="mt-2 text-base leading-7 text-center">
                                 The goto AI platform, powers Chain of Thought&apos;s Academic Integrity Detection and Note Summarization.
                             </p>
                         </div>
@@ -289,148 +317,147 @@ export default function Page() {
                 </div>
             </section>
 
-            <section className="bg-[#0D1117] py-12 sm:py-16 lg:py-20">
+            <section className="dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] py-12 sm:py-16 lg:py-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What our users say</h2>
-                        <p className="mt-4 text-lg leading-8 text-gray-300">
-                            Hear from our satisfied users about their experience with the Chain of Thoughts.
-                        </p>
+                        <p className="mt-4 text-lg leading-8">Hear from our satisfied users about their experience with the Chain of Thoughts.</p>
                     </div>
                     <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-                        <div className="flex flex-col rounded-lg bg-[#0E1218] p-6 shadow-lg">
+                        <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
-                                <p className="text-lg font-semibold leading-8 text-white">
+                                <p className="text-lg font-semibold leading-8 dark:text-white">
                                     &quot;This Chain of Thoughts platform has been a game-changer for my note-taking. The secure sharing and
                                     AI-powered organization have made my studies so much more efficient.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
                                 <Avatar>
-                                    <AvatarFallback className="bg-slate-500">EM</AvatarFallback>
+                                    <AvatarFallback className="dark:bg-slate-500">EM</AvatarFallback>
                                 </Avatar>
                                 <div className="text-sm leading-6">
-                                    <p className="font-semibold text-white">em-li.icp</p>
-                                    <p className="text-gray-300">Student, National University of Singapore</p>
+                                    <p className="font-semibold dark:text-white">em-li.icp</p>
+                                    <p className="dark:text-gray-300">Student, National University of Singapore</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col rounded-lg bg-[#0E1218] p-6 shadow-lg">
+                        <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
-                                <p className="text-lg font-semibold leading-8 text-white">
+                                <p className="text-lg font-semibold leading-8 dark:text-white">
                                     &quot;I was hesitant at first, but this Chain of Thoughts platform has completely transformed the way I manage my
                                     school notes. The decentralized storage and AI features are simply amazing.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
                                 <Avatar>
-                                    <AvatarFallback className="bg-slate-500">MI</AvatarFallback>
+                                    <AvatarFallback className="dark:bg-slate-500">MI</AvatarFallback>
                                 </Avatar>
                                 <div className="text-sm leading-6">
-                                    <p className="font-semibold text-white">michael.icp</p>
-                                    <p className="text-gray-300">Student, Nanyang Technological University</p>
+                                    <p className="font-semibold dark:text-white">michael.icp</p>
+                                    <p className="dark:text-gray-300">Student, Nanyang Technological University</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col rounded-lg bg-[#0E1218] p-6 shadow-lg">
+                        <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
-                                <p className="text-lg font-semibold leading-8 text-white">
+                                <p className="text-lg font-semibold leading-8 dark:text-white">
                                     &quot;I love how this Chain of Thoughts platform makes it easy to share and collaborate on notes with my
                                     classmates. The blockchain-based security gives me peace of mind.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
                                 <Avatar>
-                                    <AvatarFallback className="bg-slate-500">SL</AvatarFallback>
+                                    <AvatarFallback className="dark:bg-slate-500">SL</AvatarFallback>
                                 </Avatar>
                                 <div className="text-sm leading-6">
-                                    <p className="font-semibold text-white">s-lee.icp</p>
-                                    <p className="text-gray-300">Student, Stanford University</p>
+                                    <p className="font-semibold dark:text-white">s-lee.icp</p>
+                                    <p className="dark:text-gray-300">Student, Stanford University</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <footer className="bg-[#0D1117] py-8 sm:py-10 lg:py-12">
+
+            <footer className="dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] py-8 sm:py-10 lg:py-12">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-7xl">
                         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0">
                             <div className="space-y-4">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300">Product</h3>
+                                <h3 className="text-sm font-semibold uppercase tracking-wider">Product</h3>
                                 <ul className="space-y-2">
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Features
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Pricing
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Documentation
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300">Company</h3>
+                                <h3 className="text-sm font-semibold uppercase tracking-wider">Company</h3>
                                 <ul className="space-y-2">
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             About
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Blog
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Careers
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300">Support</h3>
+                                <h3 className="text-sm font-semibold uppercase tracking-wider">Support</h3>
                                 <ul className="space-y-2">
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Help Center
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Contact Us
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Security
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300">Follow Us</h3>
+                                <h3 className="text-sm font-semibold uppercase tracking-wider">Follow Us</h3>
                                 <ul className="space-y-2">
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Twitter
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             Facebook
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-sm font-medium text-gray-400 hover:text-gray-300" href="#">
+                                        <Link className="text-sm font-medium dark:text-gray-400 dark:hover:text-gray-300" href="#">
                                             LinkedIn
                                         </Link>
                                     </li>
