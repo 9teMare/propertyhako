@@ -13,16 +13,16 @@ export default function Page() {
                 <div className="z-10 max-w-3xl text-center">
                     <div className="flex-col w-full text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl header-1">
                         <span className="flex flex-col md:flex-row items-center">
-                            <h1>Your&nbsp;</h1>
-                            <span className="flex w-fit sm:flex-col md:flex-row">
-                                <h1 className="w-full drop-shadow-lg text-4xl font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] brand animate-gradient-x">
+                            <h1 className="leading-[3rem]">Your&nbsp;</h1>
+                            <span className="sm:flex sm:w-fit">
+                                <h1 className="w-full drop-shadow-lg text-center text-4xl leading-[3rem] font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] brand animate-gradient-x">
                                     Chain of Thoughts
                                 </h1>
                                 <ThemeToggle className="stroke-pink-500 stroke-[3px]" />
                             </span>
                         </span>
 
-                        <h1>Start Here</h1>
+                        <h1 className="leading-[3rem]">Start Here</h1>
                     </div>
                     <p className="max-w-2xl mt-6 text-lg leading-8 dark:text-gray-300 text-[#1c1c1c] text-center body-1">
                         Revolutionize note sharing experience with our blockchain-powered, AI-driven platform. Share, store, and organize your school
