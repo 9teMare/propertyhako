@@ -9,8 +9,6 @@ import { useContext } from "react";
 export default function Page() {
     const { user } = useContext(AuthContext);
 
-    console.log(user);
-
     return (
         <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white h-screen relative">
             <div className="space-y-2">
