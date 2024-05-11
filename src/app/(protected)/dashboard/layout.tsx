@@ -102,7 +102,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                                 </Link>
 
                                 <div className="flex justify-center items-center">
-                                    <h2 className="text-lg font-bold brand animate-gradient-x line-clamp-1">Chain of Thoughts</h2>
+                                    <h2 className="text-lg font-bold brand animate-gradient-x line-clamp-1">PropertyHako</h2>
                                     <ThemeToggle className="h-[1.5rem] w-[1.5rem] stroke-pink-500" />
                                 </div>
                             </div>
