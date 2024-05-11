@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@junobuild/core-peer':
-        specifier: ^0.0.13
-        version: 0.0.13(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/auth-client@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0)
+        specifier: ^0.0.14
+        version: 0.0.14(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/auth-client@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0)
       '@monaco-editor/react':
         specifier: ^4.6.0
         version: 4.6.0(monaco-editor@0.48.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -67,11 +67,11 @@ importers:
         version: 1.0.7(tailwindcss@3.4.3)
     devDependencies:
       '@junobuild/config':
-        specifier: ^0.0.5
-        version: 0.0.5
+        specifier: ^0.0.6
+        version: 0.0.6
       '@junobuild/nextjs-plugin':
-        specifier: ^0.0.5
-        version: 0.0.5(@junobuild/utils@0.0.20(@dfinity/principal@1.3.0))(next@14.1.4(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        specifier: ^0.0.6
+        version: 0.0.6(@junobuild/utils@0.0.20(@dfinity/principal@1.3.0))(next@14.1.4(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@next/eslint-plugin-next':
         specifier: ^14.1.4
         version: 14.2.3
@@ -369,16 +369,19 @@ packages:
   '@junobuild/config@0.0.5':
     resolution: {integrity: sha512-UJaeKgvyYuwi9NfqR+PCE+ynQkVD7ZLpMix5+2G03XWKYznuqDbCefH+wO1rE4arrc6wvu4tPG5SV0twhrmKog==}
 
-  '@junobuild/core-peer@0.0.13':
-    resolution: {integrity: sha512-d87J9Y1rQIEXHGsA4IedeaaUGqyT1Hzb3SS+r8nwZbVW/1cABKFzAhVIP0ePw5janJLcricvU1L7EBc15j9dUA==}
-    peerDependencies:
-      '@dfinity/agent': ^1.2.0
-      '@dfinity/auth-client': ^1.2.0
-      '@dfinity/identity': ^1.2.0
-      '@dfinity/principal': ^1.2.0
+  '@junobuild/config@0.0.6':
+    resolution: {integrity: sha512-P4lrF0g8U+h6pD1CsHDuQGeW+iofr3E5cb7vxmg+eOTtXLoFZsnIdnxA4aLFwwljOUoqopab4CdHBaldLvADLg==}
 
-  '@junobuild/nextjs-plugin@0.0.5':
-    resolution: {integrity: sha512-ITpprfi+7DqBF5Xib39jIxvkW1jZLzg0fTwZLSSYTaRLM9/8Xz34Pl4AAKfB5XSMk+H2mhhT7Din1aySL0lfaw==}
+  '@junobuild/core-peer@0.0.14':
+    resolution: {integrity: sha512-89vWZfRe5QY9i154juMPwB8LvFBk3kRp6QbonMcLv6DV8y6R8XCS7xfjB2RNfYb+nXxIswGwmIoLj4pl5Qap4Q==}
+    peerDependencies:
+      '@dfinity/agent': ^1.3.0
+      '@dfinity/auth-client': ^1.3.0
+      '@dfinity/identity': ^1.3.0
+      '@dfinity/principal': ^1.3.0
+
+  '@junobuild/nextjs-plugin@0.0.6':
+    resolution: {integrity: sha512-UGIoM9L59OnEblwVO+3WjE2Bb1dNm843beMpsqLubpEbEPgtNUGeRnYXZL1cZeXTp3dUyqBDD+eKQz9KE03j0Q==}
     peerDependencies:
       next: ^12.0.10 || ^13.0.0 || ^14.0.0
 
@@ -2730,7 +2733,9 @@ snapshots:
 
   '@junobuild/config@0.0.5': {}
 
-  '@junobuild/core-peer@0.0.13(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/auth-client@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0)':
+  '@junobuild/config@0.0.6': {}
+
+  '@junobuild/core-peer@0.0.14(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/auth-client@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0)':
     dependencies:
       '@dfinity/agent': 1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)
       '@dfinity/auth-client': 1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/identity@1.3.0(@dfinity/agent@1.3.0(@dfinity/candid@1.3.0(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0))(@dfinity/principal@1.3.0)(@peculiar/webcrypto@1.4.6))(@dfinity/principal@1.3.0)
@@ -2738,10 +2743,8 @@ snapshots:
       '@dfinity/principal': 1.3.0
       '@junobuild/utils': 0.0.20(@dfinity/principal@1.3.0)
 
-  '@junobuild/nextjs-plugin@0.0.5(@junobuild/utils@0.0.20(@dfinity/principal@1.3.0))(next@14.1.4(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@junobuild/nextjs-plugin@0.0.6(@junobuild/utils@0.0.20(@dfinity/principal@1.3.0))(next@14.1.4(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@junobuild/cli-tools': 0.0.7(@junobuild/config@0.0.5)(@junobuild/utils@0.0.20(@dfinity/principal@1.3.0))
-      '@junobuild/config': 0.0.5
       '@junobuild/plugin-tools': 0.0.3(@junobuild/utils@0.0.20(@dfinity/principal@1.3.0))
       next: 14.1.4(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
