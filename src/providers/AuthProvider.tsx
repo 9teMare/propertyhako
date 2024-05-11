@@ -1,8 +1,11 @@
 "use client";
 
 import { Login } from "@/components/login";
-import { authSubscribe, type User } from "@junobuild/core-peer";
-import { createContext, useEffect, useState, type ReactNode } from "react";
+
+import { useUserStore } from "@/stores/userStore";
+import { UserRoleData } from "@/types/user";
+import { authSubscribe, listDocs, type User } from "@junobuild/core-peer";
+import { createContext, useCallback, useEffect, useState, type ReactNode } from "react";
 
 export const AuthContext = createContext<{ user: User | undefined | null }>({ user: undefined });
 
@@ -13,13 +16,38 @@ interface AuthProps {
 export default function AuthProvider({ children }: AuthProps) {
     const [user, setUser] = useState<User | undefined | null>(undefined);
 
+    const getUserRole = useCallback(async () => {
+        const { items } = await listDocs<UserRoleData>({
+            collection: "user",
+            filter: {
+                owner: user?.owner,
+            },
+        });
+        return items;
+    }, [user?.owner]);
+
+    const updateUser = useUserStore((state) => state.updateUser);
+    const updateRole = useUserStore((state) => state.updateRole);
+
     useEffect(() => {
         const sub = authSubscribe((user) => {
             setUser(user);
+            updateUser(user);
         });
 
         return () => sub();
-    }, []);
+    }, [updateUser]);
+
+    useEffect(() => {
+        const checkOnboard = async () => {
+            const role = await getUserRole();
+            updateRole(role[0]?.data?.data?.role);
+        };
+
+        if (user !== undefined && user !== null) {
+            checkOnboard();
+        }
+    }, [getUserRole, updateRole, user]);
 
     return (
         <AuthContext.Provider value={{ user }}>

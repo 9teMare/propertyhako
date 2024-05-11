@@ -5,17 +5,8 @@ import { Footer } from "@/components/footer";
 import { Modal } from "@/components/modal";
 import { Table } from "@/components/table";
 import AuthProvider from "@/providers/AuthProvider";
-import { initJuno } from "@junobuild/core-peer";
-import { useEffect } from "react";
 
 export default function Home() {
-    useEffect(() => {
-        (async () =>
-            await initJuno({
-                satelliteId: process.env.NEXT_PUBLIC_JUNO_SATELLITE_ID as string,
-            }))();
-    }, []);
-
     return (
         <>
             <div className="relative isolate min-h-[100dvh]">
