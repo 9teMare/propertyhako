@@ -21,8 +21,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-    title: "Chain of Thoughts",
-    description: "Your Chain of Thoughts start here!",
+    title: "PropertyHako",
+    description: "Your Property journey start here!",
 };
 
 export default function RootLayout({

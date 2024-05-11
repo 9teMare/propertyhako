@@ -60,7 +60,7 @@ export default function AuthProvider({ children }: AuthProps) {
                             <h1>Sign in</h1>
                             <h1>to continue</h1>
                             <h1>with your</h1>
-                            <h1 className="brand mt-4">Chain of Thoughts</h1>
+                            <h1 className="brand mt-4">PropertyHako</h1>
                         </span>
                         <Login />
                     </div>

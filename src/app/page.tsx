@@ -16,7 +16,7 @@ export default function Page() {
                             <h1 className="leading-[3rem]">Your&nbsp;</h1>
                             <span className="sm:flex sm:w-fit">
                                 <h1 className="w-full drop-shadow-lg text-center text-4xl leading-[3rem] font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] brand animate-gradient-x">
-                                    Chain of Thoughts
+                                    PropertyHako
                                 </h1>
                                 <ThemeToggle className="stroke-pink-500 stroke-[3px]" />
                             </span>
@@ -25,8 +25,7 @@ export default function Page() {
                         <h1 className="leading-[3rem]">Start Here</h1>
                     </div>
                     <p className="max-w-2xl mt-6 text-lg leading-8 dark:text-gray-300 text-[#1c1c1c] text-center body-1">
-                        Revolutionize note sharing experience with our blockchain-powered, AI-driven platform. Share, store, and organize your school
-                        notes securely and efficiently.
+                        Revolutionize Property Renting experience with our blockchain-powered, AI-driven platform. One second rent, lightning fast.
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Link
@@ -54,37 +53,17 @@ export default function Page() {
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Key Features</h2>
                         <p className="mt-4 text-lg leading-8 ">
-                            Discover how our Chain of Thoughts platform can revolutionize your note-taking experience.
+                            Discover how our PropertyHako platform can revolutionize your property-renting experience.
                         </p>
                     </div>
                     <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
                         <div className="flex flex-col items-center">
                             <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
-                                <BookOpenIcon className="h-full w-full" />
-                            </div>
-                            <h3 className="mt-6 text-lg font-semibold">Study-to-Earn</h3>
-                            <p className="mt-2 text-base leading-7 text-center">
-                                Groundbreaking school-based incentivization, start earning with your notes when endorsed by others.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                            <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
                                 <KeyIcon className="h-full w-full" />
                             </div>
-                            <h3 className="mt-6 text-lg font-semibold">Permissioned Guild</h3>
+                            <h3 className="mt-6 text-lg font-semibold">Blockchain Secured Transactions</h3>
                             <p className="mt-2 text-base leading-7 text-center">
-                                Only people in the same module can endorse your notes, ensuring quality and relevance.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                            <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
-                                <BookLockIcon className="h-full w-full" />
-                            </div>
-                            <h3 className="mt-6 text-lg font-semibold">Secure Note Sharing</h3>
-                            <p className="mt-2 text-base leading-7 text-center">
-                                Share your notes without revealing who you are. Be a school hero in the dark.
+                                All property transactions are secured and verified on the blockchain, ensuring transparency and trust.
                             </p>
                         </div>
 
@@ -92,9 +71,9 @@ export default function Page() {
                             <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
                                 <DatabaseIcon className="h-full w-full" />
                             </div>
-                            <h3 className="mt-6 text-lg font-semibold">Decentralized Storage</h3>
+                            <h3 className="mt-6 text-lg font-semibold">Decentralized Property Listings</h3>
                             <p className="mt-2 text-base leading-7 text-center">
-                                Store your notes securely on a decentralized network, ensuring privacy and accessibility.
+                                Property listings are stored on a decentralized network, ensuring privacy and accessibility.
                             </p>
                         </div>
 
@@ -102,9 +81,9 @@ export default function Page() {
                             <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
                                 <CpuIcon className="h-full w-full" />
                             </div>
-                            <h3 className="mt-6 text-lg font-semibold">AI-Powered Organization</h3>
+                            <h3 className="mt-6 text-lg font-semibold">AI-Powered Property Matching</h3>
                             <p className="mt-2 text-base leading-7 text-center">
-                                Let our AI assistant help you organize and summarize your notes for easy retrieval.
+                                Our AI assistant helps match you with the perfect property based on your preferences and needs.
                             </p>
                         </div>
 
@@ -112,20 +91,40 @@ export default function Page() {
                             <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
                                 <ScaleIcon className="h-full w-full" />
                             </div>
-                            <h3 className="mt-6 text-lg font-semibold">Integrity</h3>
+                            <h3 className="mt-6 text-lg font-semibold">Transparent Pricing</h3>
                             <p className="mt-2 text-base leading-7 text-center">
-                                Our AI ensures all the content do not violate academic integrity, while providing uncensored access to knowledge.
+                                Blockchain technology ensures transparent and fair pricing, eliminating hidden fees and charges.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                            <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
+                                <BookLockIcon className="h-full w-full" />
+                            </div>
+                            <h3 className="mt-6 text-lg font-semibold">Secure Lease Agreements</h3>
+                            <p className="mt-2 text-base leading-7 text-center">
+                                Lease agreements are securely stored on the blockchain, providing a tamper-proof record of the contract.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                            <div className="h-12 w-12 rounded-full bg-indigo-500 p-2 text-white">
+                                <BookOpenIcon className="h-full w-full" />
+                            </div>
+                            <h3 className="mt-6 text-lg font-semibold">Smart Contracts</h3>
+                            <p className="mt-2 text-base leading-7 text-center">
+                                Utilize smart contracts for automated, self-executing agreements with clear rules and penalties.
                             </p>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             <section className="dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] min-h-screen flex justify-center items-center py-12 sm:py-16 lg:py-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Powered by the best</h2>
-                        <p className="mt-4 text-lg leading-8">Discover how we built the Chain of Thoughts.</p>
+                        <p className="mt-4 text-lg leading-8">Discover how we built the PropertyHako.</p>
                     </div>
 
                     <div className="mt-32 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -148,7 +147,7 @@ export default function Page() {
                             </svg>
                             <h3 className="mt-6 text-lg font-semibold">Juno</h3>
                             <p className="mt-2 text-base leading-7 text-center">
-                                An open-source Blockchain-as-a-Service platform, empowers the Backbone of Chain of Thoughts.
+                                An open-source Blockchain-as-a-Service platform, empowers the Backbone of PropertyHako.
                             </p>
                         </div>
 
@@ -260,7 +259,7 @@ export default function Page() {
 
                             <h3 className="mt-6 text-lg font-semibold">ICP</h3>
                             <p className="mt-2 text-base leading-7  text-center">
-                                The Internet Computer reinvents compute on blockchain, providing a secure and scalable platform for Chain of Thoughts.
+                                The Internet Computer reinvents compute on blockchain, providing a secure and scalable platform for PropertyHako.
                             </p>
                         </div>
 
@@ -323,14 +322,13 @@ export default function Page() {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What our users say</h2>
-                        <p className="mt-4 text-lg leading-8">Hear from our satisfied users about their experience with the Chain of Thoughts.</p>
+                        <p className="mt-4 text-lg leading-8">Hear from our satisfied users about their experience with the PropertyHako.</p>
                     </div>
                     <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
                         <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
                                 <p className="text-lg font-semibold leading-8 dark:text-white">
-                                    &quot;This Chain of Thoughts platform has been a game-changer for my note-taking. The secure sharing and
-                                    AI-powered organization have made my studies so much more efficient.&quot;
+                                    &quot;The PropertyChain platform has revolutionized the way I rent properties. The blockchain security and AI-powered matching have made my property search so much more efficient.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
@@ -339,15 +337,14 @@ export default function Page() {
                                 </Avatar>
                                 <div className="text-sm leading-6">
                                     <p className="font-semibold dark:text-white">em-li.icp</p>
-                                    <p className="dark:text-gray-300">Student, National University of Singapore</p>
+                                    <p className="dark:text-gray-300">Tenant, Singapore</p>
                                 </div>
                             </div>
                         </div>
                         <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
                                 <p className="text-lg font-semibold leading-8 dark:text-white">
-                                    &quot;I was hesitant at first, but this Chain of Thoughts platform has completely transformed the way I manage my
-                                    school notes. The decentralized storage and AI features are simply amazing.&quot;
+                                    &quot;I was skeptical at first, but PropertyChain has completely transformed the way I manage my property portfolio. The decentralized listings and AI features are simply amazing.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
@@ -356,15 +353,14 @@ export default function Page() {
                                 </Avatar>
                                 <div className="text-sm leading-6">
                                     <p className="font-semibold dark:text-white">michael.icp</p>
-                                    <p className="dark:text-gray-300">Student, Nanyang Technological University</p>
+                                    <p className="dark:text-gray-300">Landlord, Singapore</p>
                                 </div>
                             </div>
                         </div>
                         <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
                                 <p className="text-lg font-semibold leading-8 dark:text-white">
-                                    &quot;I love how this Chain of Thoughts platform makes it easy to share and collaborate on notes with my
-                                    classmates. The blockchain-based security gives me peace of mind.&quot;
+                                    &quot;I love how PropertyChain makes it easy to find and secure properties. The blockchain-based contracts give me peace of mind.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
@@ -373,7 +369,7 @@ export default function Page() {
                                 </Avatar>
                                 <div className="text-sm leading-6">
                                     <p className="font-semibold dark:text-white">s-lee.icp</p>
-                                    <p className="dark:text-gray-300">Student, Stanford University</p>
+                                    <p className="dark:text-gray-300">Tenant, United States</p>
                                 </div>
                             </div>
                         </div>
@@ -467,12 +463,12 @@ export default function Page() {
                             </div>
                         </div>
                         <div className="mt-10 border-t border-gray-700 pt-8 sm:mt-16 sm:pt-10">
-                            <p className="text-sm leading-6 text-gray-400">© 2024 Chain of Thoughts. All rights reserved.</p>
+                            <p className="text-sm leading-6 text-gray-400">© 2024 PropertyHako. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
             </footer>
-        </div>
+        </div >
     );
 }
 
