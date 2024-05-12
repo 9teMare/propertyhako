@@ -89,15 +89,16 @@ export default function Layout({ children }: { children: ReactNode }) {
             ) : (
                 <ResizablePanelGroup direction="horizontal" className="h-screen">
                     <ResizablePanel
-                        className="flex h-screen flex-col gap-6 border-r bg-gray-100/40 p-6 dark:bg-gray-800/40"
-                        defaultSize={18}
+                        className="flex h-screen flex-col gap-6 border-r bg-gray-100/40 dark:bg-gray-800/40"
+                        defaultSize={20}
                         collapsible
+                        order={1}
                     >
-                        <div className="flex justify-between w-full items-center">
+                        <div className="flex justify-between w-full items-center px-6 pt-6">
                             <div className="flex space-x-2 items-center">
                                 <Link href="/">
                                     <Button size="icon" variant="ghost">
-                                        <ChevronLeftIcon className="h-6 w-6 stroke-white" />
+                                        <ChevronLeftIcon className="h-6 w-6 dark:stroke-white" />
                                     </Button>
                                 </Link>
 
@@ -112,7 +113,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                             </Button>
                         </div>
 
-                        <div className="flex-1 space-y-2 overflow-auto">
+                        <div className="flex-1 space-y-2 overflow-auto px-6">
                             <nav className="grid gap-1">
                                 <Link className={selectedClassName("")} href="/dashboard">
                                     <LayoutDashboardIcon className="h-4 w-4" />
@@ -136,12 +137,16 @@ export default function Layout({ children }: { children: ReactNode }) {
                                 </Link>
                             </nav>
                         </div>
-                        <div className="text-gray-300 dark:text-gray-600 text-sm text-center">
+
+                        <div className="text-gray-300 dark:text-gray-600 text-sm text-center px-6 pb-6">
                             Session expires in {dayjs(remainedSession).format("m:ss")} minutes
                         </div>
                     </ResizablePanel>
                     <ResizableHandle withHandle />
-                    <ResizablePanel>{children}</ResizablePanel>
+
+                    <ResizablePanel minSize={50} order={2}>
+                        {children}
+                    </ResizablePanel>
                 </ResizablePanelGroup>
             )}
         </>

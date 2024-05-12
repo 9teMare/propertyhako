@@ -11,7 +11,7 @@ export default function Page() {
         <div className="relative flex min-h-[100dvh] snap-mandatory overflow-y-scroll flex-col overflow-hidden bg-gradient-to-br dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-white stoke-black text-[#373737]">
             <section className="container min-h-screen snap-start mx-auto flex flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
                 <div className="z-10 max-w-3xl text-center">
-                    <div className="flex-col w-full text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl header-1">
+                    <div className="flex-col w-full text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl header-1 items-center justify-center flex">
                         <span className="flex flex-col md:flex-row items-center">
                             <h1 className="leading-[3rem]">Your&nbsp;</h1>
                             <span className="sm:flex sm:w-fit">
@@ -118,7 +118,7 @@ export default function Page() {
                         </div>
                     </div>
                 </div>
-            </section >
+            </section>
 
             <section className="dark:from-[#0D1117] dark:to-[#0E1218] from-[#ffffff] to-[#dddddd] dark:text-gray-300 stoke-black text-[#373737] min-h-screen flex justify-center items-center py-12 sm:py-16 lg:py-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -328,7 +328,8 @@ export default function Page() {
                         <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
                                 <p className="text-lg font-semibold leading-8 dark:text-white">
-                                    &quot;The PropertyChain platform has revolutionized the way I rent properties. The blockchain security and AI-powered matching have made my property search so much more efficient.&quot;
+                                    &quot;The PropertyChain platform has revolutionized the way I rent properties. The blockchain security and
+                                    AI-powered matching have made my property search so much more efficient.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
@@ -344,7 +345,8 @@ export default function Page() {
                         <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
                                 <p className="text-lg font-semibold leading-8 dark:text-white">
-                                    &quot;I was skeptical at first, but PropertyChain has completely transformed the way I manage my property portfolio. The decentralized listings and AI features are simply amazing.&quot;
+                                    &quot;I was skeptical at first, but PropertyChain has completely transformed the way I manage my property
+                                    portfolio. The decentralized listings and AI features are simply amazing.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
@@ -360,7 +362,8 @@ export default function Page() {
                         <div className="flex flex-col rounded-lg dark:bg-[#0E1218] bg-white p-6 shadow-lg">
                             <blockquote className="flex-1">
                                 <p className="text-lg font-semibold leading-8 dark:text-white">
-                                    &quot;I love how PropertyChain makes it easy to find and secure properties. The blockchain-based contracts give me peace of mind.&quot;
+                                    &quot;I love how PropertyChain makes it easy to find and secure properties. The blockchain-based contracts give me
+                                    peace of mind.&quot;
                                 </p>
                             </blockquote>
                             <div className="mt-6 flex items-center gap-x-4">
@@ -468,7 +471,7 @@ export default function Page() {
                     </div>
                 </div>
             </footer>
-        </div >
+        </div>
     );
 }
 

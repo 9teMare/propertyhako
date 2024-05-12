@@ -13,7 +13,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
         <Button
             variant="link"
             size="icon"
-            className="focus-visible:ring-0"
+            className="focus-visible:ring-0 flex items-center justify-center relative"
             onClick={() => {
                 if (theme === "dark") {
                     setTheme("light");
