@@ -3,11 +3,13 @@
 import { Logout } from "@/components/logout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { AuthContext } from "@/providers/AuthProvider";
+import { useUserStore } from "@/stores/userStore";
 import dayjs from "dayjs";
 import { useContext } from "react";
 
 export default function Page() {
     const { user } = useContext(AuthContext);
+    const role = useUserStore((state) => state.role);
 
     return (
         <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white h-screen relative">
@@ -31,6 +33,13 @@ export default function Page() {
                         </Card>
                     );
                 })}
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Role</CardTitle>
+                        <CardDescription>{role}</CardDescription>
+                    </CardHeader>
+                </Card>
             </div>
 
             <div className="absolute bottom-6 right-6">
