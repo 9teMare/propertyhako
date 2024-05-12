@@ -1,5 +1,6 @@
 "use client";
 
+import PropertyCard from "@/app/(protected)/dashboard/plaza/property-card";
 import {
     Pagination,
     PaginationContent,
@@ -9,159 +10,34 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination";
-import PropertyCard from "@/app/(protected)/dashboard/plaza/property-card";
+import { AuthContext } from "@/providers/AuthProvider";
 import { PropertyProps } from "@/types/property";
-import { useState } from "react";
-
-const dummyProperties: PropertyProps[] = [
-    {
-        id: "1",
-        name: "Luxury Villa",
-        address: "1234 Fancy Ave, Los Angeles, CA",
-        price: 4500,
-        imageUrls: ["https://i.imgur.com/Xfm655K.jpeg", "https://i.imgur.com/Xfm655K.jpeg", "https://i.imgur.com/Xfm655K.jpeg"],
-        bedrooms: 4,
-        bathrooms: 3,
-        area: 3500,
-        criteria: {
-            ageGroups: ["25-35", "35-45"],
-            occupations: ["Software Engineer", "Designer"],
-            nationalities: ["American", "Canadian"],
-            numberOfTenants: 2,
-        },
-    },
-    {
-        id: "2",
-        name: "Modern Apartment",
-        address: "5678 Modern St, New York, NY",
-        price: 8000,
-        imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg", "https://i.imgur.com/CwfJLWO.jpeg", "https://i.imgur.com/CwfJLWO.jpeg"],
-        bedrooms: 2,
-        bathrooms: 2,
-        area: 1500,
-        criteria: {
-            ageGroups: ["25-35", "35-45"],
-            occupations: ["Doctor", "Lawyer"],
-            nationalities: ["American", "British"],
-            numberOfTenants: 1,
-        },
-    },
-    {
-        id: "2",
-        name: "Modern Apartment",
-        address: "5678 Modern St, New York, NY",
-        price: 8000,
-        imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg"],
-        bedrooms: 2,
-        bathrooms: 2,
-        area: 1500,
-        criteria: {
-            ageGroups: ["25-35", "35-45"],
-            occupations: ["Doctor", "Lawyer"],
-            nationalities: ["American", "British"],
-            numberOfTenants: 1,
-        },
-    },
-    {
-        id: "2",
-        name: "Modern Apartment",
-        address: "5678 Modern St, New York, NY",
-        price: 8000,
-        imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg"],
-        bedrooms: 2,
-        bathrooms: 2,
-        area: 1500,
-        criteria: {
-            ageGroups: ["25-35", "35-45"],
-            occupations: ["Doctor", "Lawyer"],
-            nationalities: ["American", "British"],
-            numberOfTenants: 1,
-        },
-    },
-    {
-        id: "2",
-        name: "Modern Apartment",
-        address: "5678 Modern St, New York, NY",
-        price: 8000,
-        imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg"],
-        bedrooms: 2,
-        bathrooms: 2,
-        area: 1500,
-        criteria: {
-            ageGroups: ["25-35", "35-45"],
-            occupations: ["Doctor", "Lawyer"],
-            nationalities: ["American", "British"],
-            numberOfTenants: 1,
-        },
-    },
-    {
-        id: "2",
-        name: "Modern Apartment",
-        address: "5678 Modern St, New York, NY",
-        price: 8000,
-        imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg"],
-        bedrooms: 2,
-        bathrooms: 2,
-        area: 1500,
-        criteria: {
-            ageGroups: ["25-35", "35-45"],
-            occupations: ["Doctor", "Lawyer"],
-            nationalities: ["American", "British"],
-            numberOfTenants: 1,
-        },
-    },
-    // {
-    //     id: "2",
-    //     name: "Modern Apartment",
-    //     address: "5678 Modern St, New York, NY",
-    //     price: 8000,
-    //     imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg"],
-    //     bedrooms: 2,
-    //     bathrooms: 2,
-    //     area: 1500,
-    //     criteria: {
-    //         ageGroups: ["25-35", "35-45"],
-    //         occupations: ["Doctor", "Lawyer"],
-    //         nationalities: ["American", "British"],
-    //         numberOfTenants: 1,
-    //     },
-    // },
-    // {
-    //     id: "2",
-    //     name: "Modern Apartment",
-    //     address: "5678 Modern St, New York, NY",
-    //     price: 8000,
-    //     imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg"],
-    //     bedrooms: 2,
-    //     bathrooms: 2,
-    //     area: 1500,
-    //     criteria: {
-    //         ageGroups: ["25-35", "35-45"],
-    //         occupations: ["Doctor", "Lawyer"],
-    //         nationalities: ["American", "British"],
-    //         numberOfTenants: 1,
-    //     },
-    // },
-    // {
-    //     id: "2",
-    //     name: "Modern Apartment",
-    //     address: "5678 Modern St, New York, NY",
-    //     price: 8000,
-    //     imageUrls: ["https://i.imgur.com/CwfJLWO.jpeg"],
-    //     bedrooms: 2,
-    //     bathrooms: 2,
-    //     area: 1500,
-    //     criteria: {
-    //         ageGroups: ["25-35", "35-45"],
-    //         occupations: ["Doctor", "Lawyer"],
-    //         nationalities: ["American", "British"],
-    //         numberOfTenants: 1,
-    //     },
-    // },
-];
+import { listDocs } from "@junobuild/core-peer";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 export default function Page() {
-    const [properties, setProperties] = useState<PropertyProps[]>(dummyProperties);
+    const [properties, setProperties] = useState<PropertyProps[]>([]);
+    const { user } = useContext(AuthContext);
+
+    const fetchProperties = useCallback(async () => {
+        const { items } = await listDocs<PropertyProps>({
+            collection: "property",
+        });
+
+        const currProperties = items.map((item) => {
+            return {
+                ...item.data,
+            };
+        });
+
+        setProperties(currProperties);
+    }, []);
+
+    useEffect(() => {
+        if (user) {
+            fetchProperties();
+        }
+    }, [user, fetchProperties]);
 
     return (
         <div className="p-4 overflow-hidden h-screen w-full dark:text-white justify-between flex flex-col space-y-2">
