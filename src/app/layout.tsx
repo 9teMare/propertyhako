@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 
+import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { Poppins, DM_Sans } from "next/font/google";
@@ -38,6 +39,7 @@ export default function RootLayout({
                         {children}
                     </ThemeProvider>
                 </JunoProvider>
+                <Toaster />
             </body>
         </html>
     );
