@@ -1,19 +1,11 @@
-'use client'
+"use client";
 
 import { useCallback, useContext, useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/components/ui/use-toast"
@@ -169,10 +161,10 @@ export default function PropertiesPage() {
             <Card key={property.id}>
                 <CardHeader>
                     <CardTitle className="flex flex-row mb-2">
-                        <div className="flex items-center">
-                            {property.name}
-                        </div>
-                        <Badge variant="outline" className="ml-auto">{property.isPublished ? 'Published' : 'Unpublished'}</Badge>
+                        <div className="flex items-center">{property.name}</div>
+                        <Badge variant="outline" className="ml-auto">
+                            {property.isPublished ? "Published" : "Unpublished"}
+                        </Badge>
                     </CardTitle>
                     <CardDescription>{property.address}</CardDescription>
                 </CardHeader>
@@ -187,14 +179,14 @@ export default function PropertiesPage() {
                         <p>Area: {property.area}</p>
                     </div>
                 </CardContent>
-                {!property.isPublished && <CardFooter>
-                    <Button variant="default">
-                        Publish to market
-                    </Button>
-                </CardFooter>}
+                {!property.isPublished && (
+                    <CardFooter>
+                        <Button variant="default">Publish to market</Button>
+                    </CardFooter>
+                )}
             </Card>
-        )
-    }
+        );
+    };
 
     const renderAddPropertyCard = () => {
         return (
@@ -208,8 +200,8 @@ export default function PropertiesPage() {
                     </CardTitle>
                 </CardHeader>
             </Card>
-        )
-    }
+        );
+    };
 
     const renderEditModal = () => {
         const handleOnClick = () => {
@@ -359,9 +351,10 @@ export default function PropertiesPage() {
         )
     }
 
-    return <div className="grid grid-cols-3 grid-rows-3 gap-2 p-4">
-        {properties?.map((property) => renderPropertyCard(property))}
-        {renderAddPropertyCard()}
-    </div>
-
+    return (
+        <div className="grid grid-cols-3 grid-rows-3 gap-2 p-4">
+            {properties?.map((property) => renderPropertyCard(property))}
+            {renderAddPropertyCard()}
+        </div>
+    );
 }
