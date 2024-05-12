@@ -89,7 +89,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     <LayoutDashboardIcon className="h-4 w-4" />
                     Dashboard
                 </Link>
-                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
+                <Link className={selectedClassName("properties")} href="/dashboard/properties">
                     <BookIcon className="h-4 w-4" />
                     My Properties
                 </Link>
