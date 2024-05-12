@@ -5,4 +5,4 @@ export interface UserData {
     role: "tenant" | "landlord" | null;
 }
 
-export type UserRoleData = Doc<UserData>;
+export type UserRoleData = UserData;

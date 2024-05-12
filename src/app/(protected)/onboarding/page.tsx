@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/button";
 import { AuthContext } from "@/providers/AuthProvider";
+import { useUserStore } from "@/stores/userStore";
 import { setDoc } from "@junobuild/core-peer";
 import { ArrowRightIcon, LoaderCircle } from "lucide-react";
 import { nanoid } from "nanoid";
@@ -9,7 +10,8 @@ import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 
 export default function Page() {
-    const [role, setRole] = useState<"tenant" | "landlord" | null>(null);
+    // const [role, setRole] = useState<"tenant" | "landlord" | null>(null);
+    const { role, updateRole } = useUserStore();
     const [loading, setLoading] = useState(false);
 
     const router = useRouter();
@@ -52,11 +54,11 @@ export default function Page() {
                 <h1 className="header-2 text-center font-bold">Are you a </h1>
 
                 <div className="flex justify-center items-center w-full space-x-4">
-                    <Button onClick={() => setRole("tenant")} variant={role === "tenant" ? "default" : "ghost"}>
+                    <Button onClick={() => updateRole("tenant")} variant={role === "tenant" ? "default" : "ghost"}>
                         Tenant
                     </Button>
                     <span>/</span>
-                    <Button onClick={() => setRole("landlord")} variant={role === "landlord" ? "default" : "ghost"}>
+                    <Button onClick={() => updateRole("landlord")} variant={role === "landlord" ? "default" : "ghost"}>
                         Landlord
                     </Button>
                 </div>

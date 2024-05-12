@@ -15,6 +15,7 @@ interface AuthProps {
 
 export default function AuthProvider({ children }: AuthProps) {
     const [user, setUser] = useState<User | undefined | null>(undefined);
+    const { updateUser, updateRole } = useUserStore();
 
     const getUserRole = useCallback(async () => {
         const { items } = await listDocs<UserRoleData>({
@@ -25,9 +26,6 @@ export default function AuthProvider({ children }: AuthProps) {
         });
         return items;
     }, [user?.owner]);
-
-    const updateUser = useUserStore((state) => state.updateUser);
-    const updateRole = useUserStore((state) => state.updateRole);
 
     useEffect(() => {
         const sub = authSubscribe((user) => {
@@ -41,7 +39,7 @@ export default function AuthProvider({ children }: AuthProps) {
     useEffect(() => {
         const checkOnboard = async () => {
             const role = await getUserRole();
-            updateRole(role[0]?.data?.data?.role);
+            updateRole(role[0]?.data?.role);
         };
 
         if (user !== undefined && user !== null) {

@@ -4,6 +4,7 @@ import { Button } from "@/components/button";
 import ThemeToggle from "@/components/theme-toggle";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { AuthContext } from "@/providers/AuthProvider";
+import { useUserStore } from "@/stores/userStore";
 import { UserRoleData } from "@/types/user";
 import { listDocs } from "@junobuild/core-peer";
 import dayjs from "dayjs";
@@ -21,7 +22,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     const [isOnboard, setIsOnboard] = useState(false);
 
     const { user } = useContext(AuthContext);
-
+    const { role } = useUserStore();
     const router = useRouter();
 
     const getIsOnboard = useCallback(async () => {
@@ -80,6 +81,57 @@ export default function Layout({ children }: { children: ReactNode }) {
         [selected]
     );
 
+
+    const renderLandlordSideBar = () => {
+        return (
+            <nav className="grid gap-1">
+                <Link className={selectedClassName("")} href="/dashboard">
+                    <LayoutDashboardIcon className="h-4 w-4" />
+                    Dashboard
+                </Link>
+                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
+                    <BookIcon className="h-4 w-4" />
+                    My Properties
+                </Link>
+                <Link className={selectedClassName("my")} href="/dashboard/my">
+                    <User2Icon className="h-4 w-4" />
+                    Negotiations
+                </Link>
+                <Link className={selectedClassName("settings")} href="/dashboard/settings">
+                    <SettingsIcon className="h-4 w-4" />
+                    Settings
+                </Link>
+            </nav>
+        )
+    }
+
+    const renderTenantSideBar = () => {
+        return (
+            <nav className="grid gap-1">
+                <Link className={selectedClassName("")} href="/dashboard">
+                    <LayoutDashboardIcon className="h-4 w-4" />
+                    Dashboard
+                </Link>
+                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
+                    <BookIcon className="h-4 w-4" />
+                    Properties Plaza
+                </Link>
+                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
+                    <BookIcon className="h-4 w-4" />
+                    My applications
+                </Link>
+                <Link className={selectedClassName("my")} href="/dashboard/my">
+                    <User2Icon className="h-4 w-4" />
+                    My Profile
+                </Link>
+                <Link className={selectedClassName("settings")} href="/dashboard/settings">
+                    <SettingsIcon className="h-4 w-4" />
+                    Settings
+                </Link>
+            </nav>
+        )
+    }
+
     return (
         <>
             {!isOnboard ? (
@@ -114,28 +166,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                         </div>
 
                         <div className="flex-1 space-y-2 overflow-auto px-6">
-                            <nav className="grid gap-1">
-                                <Link className={selectedClassName("")} href="/dashboard">
-                                    <LayoutDashboardIcon className="h-4 w-4" />
-                                    Dashboard
-                                </Link>
-                                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
-                                    <BookIcon className="h-4 w-4" />
-                                    Note Plaza
-                                </Link>
-                                <Link className={selectedClassName("my")} href="/dashboard/my">
-                                    <User2Icon className="h-4 w-4" />
-                                    My
-                                </Link>
-                                <Link className={selectedClassName("earn")} href="/dashboard/earn">
-                                    <BitcoinIcon className="h-4 w-4" />
-                                    Earn
-                                </Link>
-                                <Link className={selectedClassName("settings")} href="/dashboard/settings">
-                                    <SettingsIcon className="h-4 w-4" />
-                                    Settings
-                                </Link>
-                            </nav>
+                            {role === "landlord" ? renderLandlordSideBar() : renderTenantSideBar()}
                         </div>
 
                         <div className="text-gray-300 dark:text-gray-600 text-sm text-center px-6 pb-6">
