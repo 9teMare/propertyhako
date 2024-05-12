@@ -26,6 +26,7 @@ interface PropertyProps {
     bathrooms: number;
     area: number;
     publishedAt?: string;
+    isPublished?: boolean;
     criteria: {
         ageGroups: string[];
         occupations: string[];
@@ -84,7 +85,7 @@ export default function PropertiesPage() {
                         <div className="flex items-center">
                             {property.name}
                         </div>
-                        <Badge variant="outline" className="ml-auto">{property.publishedAt ? 'Published' : 'Unpublished'}</Badge>
+                        <Badge variant="outline" className="ml-auto">{property.isPublished ? 'Published' : 'Unpublished'}</Badge>
                     </CardTitle>
                     <CardDescription>{property.address}</CardDescription>
                 </CardHeader>
@@ -99,7 +100,7 @@ export default function PropertiesPage() {
                         <p>Area: {property.area}</p>
                     </div>
                 </CardContent>
-                {!property.publishedAt && <CardFooter>
+                {!property.isPublished && <CardFooter>
                     <Button variant="default">
                         Publish to market
                     </Button>
