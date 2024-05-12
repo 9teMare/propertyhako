@@ -8,7 +8,18 @@ import { useUserStore } from "@/stores/userStore";
 import { UserRoleData } from "@/types/user";
 import { listDocs } from "@junobuild/core-peer";
 import dayjs from "dayjs";
-import { BitcoinIcon, BookIcon, ChevronLeftIcon, LayoutDashboardIcon, LoaderCircleIcon, SearchIcon, SettingsIcon, User2Icon } from "lucide-react";
+import {
+    BitcoinIcon,
+    BookIcon,
+    ChevronLeftIcon,
+    FoldersIcon,
+    HomeIcon,
+    LayoutDashboardIcon,
+    LoaderCircleIcon,
+    SearchIcon,
+    SettingsIcon,
+    User2Icon,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useCallback, useContext, useEffect, useLayoutEffect, useState } from "react";
@@ -81,7 +92,6 @@ export default function Layout({ children }: { children: ReactNode }) {
         [selected]
     );
 
-
     const renderLandlordSideBar = () => {
         return (
             <nav className="grid gap-1">
@@ -102,22 +112,22 @@ export default function Layout({ children }: { children: ReactNode }) {
                     Settings
                 </Link>
             </nav>
-        )
-    }
+        );
+    };
 
     const renderTenantSideBar = () => {
         return (
             <nav className="grid gap-1">
+                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
+                    <HomeIcon className="h-4 w-4" />
+                    Properties Plaza
+                </Link>
                 <Link className={selectedClassName("")} href="/dashboard">
                     <LayoutDashboardIcon className="h-4 w-4" />
                     Dashboard
                 </Link>
-                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
-                    <BookIcon className="h-4 w-4" />
-                    Properties Plaza
-                </Link>
-                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
-                    <BookIcon className="h-4 w-4" />
+                <Link className={selectedClassName("applications")} href="/dashboard/applications">
+                    <FoldersIcon className="h-4 w-4" />
                     My applications
                 </Link>
                 <Link className={selectedClassName("my")} href="/dashboard/my">
@@ -129,8 +139,8 @@ export default function Layout({ children }: { children: ReactNode }) {
                     Settings
                 </Link>
             </nav>
-        )
-    }
+        );
+    };
 
     return (
         <>
