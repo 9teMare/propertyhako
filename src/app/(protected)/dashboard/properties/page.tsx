@@ -353,7 +353,7 @@ export default function PropertiesPage() {
 
     return (
         <div className="grid grid-cols-3 grid-rows-3 gap-2 p-4">
-            {properties?.map((property) => renderPropertyCard(property))}
+            {properties?.map((property, index) => <div key={index}>{renderPropertyCard(property)}</div>)}
             {renderAddPropertyCard()}
         </div>
     );
