@@ -118,19 +118,19 @@ export default function Layout({ children }: { children: ReactNode }) {
     const renderTenantSideBar = () => {
         return (
             <nav className="grid gap-1">
-                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
-                    <HomeIcon className="h-4 w-4" />
-                    Properties Plaza
-                </Link>
                 <Link className={selectedClassName("")} href="/dashboard">
                     <LayoutDashboardIcon className="h-4 w-4" />
                     Dashboard
+                </Link>
+                <Link className={selectedClassName("plaza")} href="/dashboard/plaza">
+                    <HomeIcon className="h-4 w-4" />
+                    Properties Plaza
                 </Link>
                 <Link className={selectedClassName("applications")} href="/dashboard/applications">
                     <FoldersIcon className="h-4 w-4" />
                     My applications
                 </Link>
-                <Link className={selectedClassName("my")} href="/dashboard/my">
+                <Link className={selectedClassName("my")} href="/dashboard/profile">
                     <User2Icon className="h-4 w-4" />
                     My Profile
                 </Link>
