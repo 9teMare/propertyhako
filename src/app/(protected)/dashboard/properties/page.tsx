@@ -14,27 +14,8 @@ import { nanoid } from "nanoid";
 import { listDocs, setDoc } from "@junobuild/core-peer";
 import { AuthContext } from "@/providers/AuthProvider";
 import { LoaderCircle } from "lucide-react";
-
-interface PropertyProps {
-    name: string;
-    address: string;
-    price: number;
-    imageUrls: string[];
-    id: string;
-    bedrooms: number;
-    bathrooms: number;
-    area: number;
-    publishedAt?: string;
-    isPublished?: boolean;
-    isDeleted?: boolean;
-    criteria: {
-        ageGroups: string;
-        occupations: string;
-        nationalities: string;
-        numberOfTenants: number;
-    };
-    user_id?: string;
-}
+import { PropertyProps } from "@/types/property";
+import PropertyCard from "../plaza/property-card";
 
 export default function PropertiesPage() {
     const [properties, setProperties] = useState<PropertyProps[]>();
@@ -158,33 +139,7 @@ export default function PropertiesPage() {
 
     const renderPropertyCard = (property: PropertyProps) => {
         return (
-            <Card key={property.id}>
-                <CardHeader>
-                    <CardTitle className="flex flex-row mb-2">
-                        <div className="flex items-center">{property.name}</div>
-                        <Badge variant="outline" className="ml-auto">
-                            {property.isPublished ? "Published" : "Unpublished"}
-                        </Badge>
-                    </CardTitle>
-                    <CardDescription>{property.address}</CardDescription>
-                </CardHeader>
-
-                <CardContent>
-                    {/*eslint-disable-next-line @next/next/no-img-element*/}
-                    {/* <img src={property.imageUrl} alt={property.name} /> */}
-                    <div>
-                        <p>Price: {property.price}</p>
-                        <p>Bedrooms: {property.bedrooms}</p>
-                        <p>Bathrooms: {property.bathrooms}</p>
-                        <p>Area: {property.area}</p>
-                    </div>
-                </CardContent>
-                {!property.isPublished && (
-                    <CardFooter>
-                        <Button variant="default">Publish to market</Button>
-                    </CardFooter>
-                )}
-            </Card>
+            <PropertyCard property={property} role={"landlord"} />
         );
     };
 

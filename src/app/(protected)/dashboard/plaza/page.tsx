@@ -54,7 +54,7 @@ export default function Page() {
                 <>
                     <div className="grid grid-cols-3 grid-rows-2 gap-2 h-full">
                         {properties?.map((property, index) => (
-                            <PropertyCard key={index} property={property} />
+                            <PropertyCard key={index} property={property} role={"tenant"} />
                         ))}
                     </div>
 

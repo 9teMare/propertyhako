@@ -9,10 +9,12 @@ export interface PropertyProps {
     area: number;
     publishedAt?: string;
     isPublished?: boolean;
+    isDeleted?: boolean;
     criteria: {
-        ageGroups: string[];
-        occupations: string[];
-        nationalities: string[];
+        ageGroups: string;
+        occupations: string;
+        nationalities: string;
         numberOfTenants: number;
     };
+    user_id?: string;
 }
