@@ -2,6 +2,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PropertyProps } from "@/types/property";
+import { Button } from "@/components/button";
+import DetailDrawer from "./detail-drawer";
 
 export default function PropertyCard({ property }: { property: PropertyProps }) {
     return (
@@ -13,7 +15,7 @@ export default function PropertyCard({ property }: { property: PropertyProps }) 
                     {property.imageUrls.map((image, index) => (
                         <CarouselItem key={index}>
                             {/*eslint-disable-next-line @next/next/no-img-element*/}
-                            <img src={image} alt={property.name} className="object-cover h-[27vh] 2xl:h-[33vh] w-full rounded-t-xl" />
+                            <img src={image} alt={property.name} className="object-cover h-[25vh] 2xl:h-[33vh] w-full rounded-t-xl" />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
@@ -23,11 +25,16 @@ export default function PropertyCard({ property }: { property: PropertyProps }) 
 
             <div className="p-4 space-y-2">
                 <CardHeader className="p-0 space-y-1">
-                    <CardTitle className="flex flex-row">
+                    <CardTitle className="flex flex-row justify-between">
                         <div className="flex items-center">{property.name}</div>
-                        <Badge variant="outline" className="ml-auto">
+                        {/* <Badge variant="outline" className="ml-auto">
                             {property.isPublished ? "Published" : "Unpublished"}
-                        </Badge>
+                        </Badge> */}
+                        <DetailDrawer property={property}>
+                            <Button variant="secondary" className="rounded-full h-full">
+                                View
+                            </Button>
+                        </DetailDrawer>
                     </CardTitle>
                     <CardDescription>{property.address}</CardDescription>
                 </CardHeader>

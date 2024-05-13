@@ -4,6 +4,7 @@ import { Button } from "@/components/button";
 import ThemeToggle from "@/components/theme-toggle";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { AuthContext } from "@/providers/AuthProvider";
+import { usePanelSizeStore } from "@/stores/usePanelSizeStore";
 import { useUserStore } from "@/stores/userStore";
 import { UserRoleData } from "@/types/user";
 import { listDocs } from "@junobuild/core-peer";
@@ -35,6 +36,9 @@ export default function Layout({ children }: { children: ReactNode }) {
     const { user } = useContext(AuthContext);
     const { role } = useUserStore();
     const router = useRouter();
+
+    const panelSize = usePanelSizeStore((state) => state.panelSize);
+    const updatePanelSize = usePanelSizeStore((state) => state.updatePanelSize);
 
     const getIsOnboard = useCallback(async () => {
         const { items } = await listDocs<UserRoleData>({
@@ -152,7 +156,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <ResizablePanelGroup direction="horizontal" className="h-screen">
                     <ResizablePanel
                         className="flex h-screen flex-col gap-6 border-r bg-gray-100/40 dark:bg-gray-800/40"
-                        defaultSize={20}
+                        defaultSize={100 - panelSize}
                         collapsible
                         order={1}
                     >
@@ -185,7 +189,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     </ResizablePanel>
                     <ResizableHandle withHandle />
 
-                    <ResizablePanel minSize={50} order={2}>
+                    <ResizablePanel defaultSize={panelSize} minSize={50} order={2} onResize={updatePanelSize}>
                         {children}
                     </ResizablePanel>
                 </ResizablePanelGroup>
