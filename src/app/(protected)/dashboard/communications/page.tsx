@@ -1,11 +1,9 @@
-'use client';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+"use client";
 import { useToast } from "@/components/ui/use-toast";
 import { AuthContext } from "@/providers/AuthProvider";
-import { PropertyProps, dummyProperties } from "@/types/property";
+import { PropertyProps } from "@/types/property";
 import { listDocs } from "@junobuild/core-peer";
 import { useCallback, useContext, useEffect, useState } from "react";
-import { twMerge } from "tailwind-merge";
 
 export default function Page() {
     const [properties, setProperties] = useState<PropertyProps[]>([]);
@@ -36,7 +34,7 @@ export default function Page() {
             // fetch properties
             fetchProperties();
         }
-    }, [user, fetchProperties])
+    }, [user, fetchProperties]);
 
     return (
         <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white">

@@ -19,7 +19,7 @@ export const Logout = () => {
         >
             <LogOutIcon className="size-4" />
 
-            <small>Logout</small>
+            <p>Logout</p>
         </Button>
     );
 };

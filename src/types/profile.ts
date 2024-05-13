@@ -3,11 +3,12 @@ export interface TenantProfile {
     gender: "male" | "female";
     occupation: string;
     pass: string;
-    budget: number;
+    budget: number[];
     pax: number;
     relationshipBetweenTenants?: string;
     smoking: boolean;
     pet: boolean;
     startFrom: string;
     duration: number;
+    note?: string;
 }
