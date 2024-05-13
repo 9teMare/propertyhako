@@ -1,37 +1,54 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+'use client';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useToast } from "@/components/ui/use-toast";
+import { AuthContext } from "@/providers/AuthProvider";
+import { PropertyProps, dummyProperties } from "@/types/property";
+import { listDocs } from "@junobuild/core-peer";
+import { useCallback, useContext, useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function Page() {
+    const [properties, setProperties] = useState<PropertyProps[]>([]);
+    const { user } = useContext(AuthContext);
+    const { toast } = useToast();
+
+    const propertiesNames = properties?.map((property) => property.name);
+    const [currActive, setCurrActive] = useState(0);
+    const fetchProperties = useCallback(async () => {
+        const { items } = await listDocs<PropertyProps>({
+            collection: "property",
+            filter: {
+                owner: user?.owner,
+            },
+        });
+
+        const currProperties = items.map((item) => {
+            return {
+                ...item.data,
+            };
+        });
+
+        setProperties(currProperties);
+    }, [user?.owner]);
+
+    useEffect(() => {
+        if (user) {
+            // fetch properties
+            fetchProperties();
+        }
+    }, [user, fetchProperties])
+
     return (
         <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white">
-            <div className="space-y-2">
-                <h1 className="text-2xl font-bold">Applications</h1>
-                <p className="text-gray-500 dark:text-gray-400">View and manage your projects here.</p>
-            </div>
-            <div className="grid gap-6">
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Project A</CardTitle>
-                        <CardDescription>This is a description of Project A. It includes details about the project and its status.</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquam nisl,
-                            eget aliquam nisl nisl vel nisl.
-                        </p>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Project B</CardTitle>
-                        <CardDescription>This is a description of Project B. It includes details about the project and its status.</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquam nisl,
-                            eget aliquam nisl nisl vel nisl.
-                        </p>
-                    </CardContent>
-                </Card>
+            <div role="tablist" className="tabs tabs-lifted">
+                {propertiesNames.map((property, index) => (
+                    <>
+                        <a role="tab" onClick={() => setCurrActive(index)} key={index} className={currActive === index ? "tab tab-active [--tab-bg:white] dark:[--tab-bg:#1d232a]" : 'tab'}>{property}</a>
+                        <div role="tabpanel" className="tab-content dark:bg-base-100 border-base-300 rounded-box p-6 min-h-[400px]">
+                            {properties[currActive].address}
+                        </div>
+                    </>
+                ))}
             </div>
         </main>
     );

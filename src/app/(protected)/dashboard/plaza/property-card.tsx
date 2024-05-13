@@ -11,7 +11,7 @@ export default function PropertyCard({ property, role }: { property: PropertyPro
             {/* <img src={property.imageUrl} alt={property.name} className="object-cover h-[60%] w-full rounded-t-xl" /> */}
             <Carousel className="relative rounded-t-xl">
                 <CarouselContent>
-                    {property.imageUrls.map((image, index) => (
+                    {property.imageUrls?.map((image, index) => (
                         <CarouselItem key={index}>
                             <div className="relative">
                                 {role === "landlord" && <Badge variant="default" className="absolute top-0 right-0 m-2">
@@ -22,9 +22,25 @@ export default function PropertyCard({ property, role }: { property: PropertyPro
                             </div>
                         </CarouselItem>
                     ))}
+                    {property.imageUrls?.length === 0 && (
+                        <CarouselItem>
+                            <div className="relative">
+                                {role === "landlord" && <Badge variant="default" className="absolute top-0 right-0 m-2">
+                                    {property.isPublished ? "Published" : "Unpublished"}
+                                </Badge>}
+                                <div className="object-cover h-[25vh] 2xl:h-[33vh] w-full rounded-t-xl" >
+                                    <div className="flex justify-center items-center h-full text-gray-600 dark:text-gray-300">
+                                        No Preview Images Available
+                                    </div>
+                                </div>
+                            </div>
+                        </CarouselItem>
+                    )}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                {property.imageUrls.length > 0 && <>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </>}
             </Carousel>
             <div className="p-4 space-y-2">
                 <CardHeader className="p-0 space-y-1">

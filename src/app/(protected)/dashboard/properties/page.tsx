@@ -208,7 +208,7 @@ export default function PropertiesPage() {
         }
     }
 
-    const AddPropertyCard = () => {
+    const renderAddPropertyCard = () => {
         return (
             <Card className="border border-dotted">
                 <CardHeader className="flex items-center justify-center h-full">
@@ -216,14 +216,14 @@ export default function PropertiesPage() {
                         {/* <Button variant="ghost" onClick={handleAddProperty}>
                             + Add a new property
                         </Button> */}
-                        <EditModal />
+                        {renderEditModal()}
                     </CardTitle>
                 </CardHeader>
             </Card>
         );
     };
 
-    const EditModal = () => {
+    const renderEditModal = () => {
         const inputs = [
             { label: 'Property Name', value: currProperty.name, setValue: (v: any) => setCurrProperty(prev => ({ ...prev, name: v })) },
             { label: 'Address', value: currProperty.address, setValue: (v: any) => setCurrProperty(prev => ({ ...prev, address: v })) },
@@ -320,7 +320,7 @@ export default function PropertiesPage() {
                 <div key={index}>
                     <PropertyCard property={property} role={"landlord"} />
                 </div>)}
-            <AddPropertyCard />
+            {renderAddPropertyCard()}
         </div>
     );
 }

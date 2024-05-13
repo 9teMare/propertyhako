@@ -107,7 +107,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     <BookIcon className="h-4 w-4" />
                     My Properties
                 </Link>
-                <Link className={selectedClassName("communication")} href="/dashboard/communications">
+                <Link className={selectedClassName("communications")} href="/dashboard/communications">
                     <User2Icon className="h-4 w-4" />
                     Communications
                 </Link>
