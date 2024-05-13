@@ -15,7 +15,7 @@ import { PropertyProps } from "@/types/property";
 import { listDocs } from "@junobuild/core-peer";
 import { LoaderCircleIcon } from "lucide-react";
 import { useCallback, useContext, useEffect, useState } from "react";
-import DetailDrawer from "./detail-drawer";
+import DetailDrawer from "./detail-sheet";
 
 export default function Page() {
     const [properties, setProperties] = useState<PropertyProps[]>([]);

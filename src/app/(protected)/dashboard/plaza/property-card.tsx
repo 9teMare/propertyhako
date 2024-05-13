@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PropertyProps } from "@/types/property";
 import { Button } from "@/components/button";
-import DetailDrawer from "./detail-drawer";
+import DetailSheet from "./detail-sheet";
 
 export default function PropertyCard({ property }: { property: PropertyProps }) {
     return (
@@ -30,11 +30,11 @@ export default function PropertyCard({ property }: { property: PropertyProps }) 
                         {/* <Badge variant="outline" className="ml-auto">
                             {property.isPublished ? "Published" : "Unpublished"}
                         </Badge> */}
-                        <DetailDrawer property={property}>
+                        <DetailSheet property={property}>
                             <Button variant="secondary" className="rounded-full h-full">
                                 View
                             </Button>
-                        </DetailDrawer>
+                        </DetailSheet>
                     </CardTitle>
                     <CardDescription>{property.address}</CardDescription>
                 </CardHeader>

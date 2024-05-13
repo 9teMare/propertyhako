@@ -1,38 +1,30 @@
 import { Button } from "@/components/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+
 import { usePanelSizeStore } from "@/stores/usePanelSizeStore";
 import { PropertyProps } from "@/types/property";
 import { ReactNode } from "react";
 
-export default function DetailDrawer({ children, property }: { children: ReactNode; property: PropertyProps }) {
+export default function DetailSheet({ children, property }: { children: ReactNode; property: PropertyProps }) {
     const panelSize = usePanelSizeStore((state) => state.panelSize);
 
     return (
-        <Drawer direction="right">
-            <DrawerTrigger>{children}</DrawerTrigger>
-            <DrawerContent
-                className="p-4"
+        <Sheet>
+            <SheetTrigger>{children}</SheetTrigger>
+            <SheetContent
+                className="p-8 flex flex-col justify-between"
                 style={{
                     width: `${panelSize}%`,
                 }}
             >
-                <DrawerHeader className="flex w-full justify-between items-center">
+                <SheetHeader className="flex flex-row w-full justify-between items-center">
                     <div className="flex flex-col space-y-4">
-                        <DrawerTitle className="line-clamp-1">{property.name}</DrawerTitle>
-                        <DrawerDescription className="line-clamp-2">{property.address}</DrawerDescription>
+                        <SheetTitle className="line-clamp-1">{property.name}</SheetTitle>
+                        <SheetDescription className="line-clamp-2">{property.address}</SheetDescription>
                     </div>
                     <p className="header-3">${property.price} / mo</p>
-                </DrawerHeader>
+                </SheetHeader>
 
                 <Carousel className="relative rounded-t-xl">
                     <CarouselContent>
@@ -66,15 +58,15 @@ export default function DetailDrawer({ children, property }: { children: ReactNo
                     </span>
                 </div>
 
-                <DrawerFooter className="flex flex-row w-full justify-between space-x-4">
-                    <DrawerClose className="w-[40%]">
+                <SheetFooter className="flex flex-row w-full justify-between space-x-8">
+                    <SheetClose className="w-[40%]">
                         <Button variant="outline" className="w-full">
                             Cancel
                         </Button>
-                    </DrawerClose>
+                    </SheetClose>
                     <Button className="w-[60%]">Make an Offer</Button>
-                </DrawerFooter>
-            </DrawerContent>
-        </Drawer>
+                </SheetFooter>
+            </SheetContent>
+        </Sheet>
     );
 }
