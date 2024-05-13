@@ -40,16 +40,18 @@ export default function Page() {
 
     return (
         <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white">
-            <div role="tablist" className="tabs tabs-lifted">
+            {propertiesNames && propertiesNames.length > 0 && <Tabs defaultValue={propertiesNames[0]}>
+                <TabsList className="justify-start overflow-x-scroll max-w-full">
+                    {propertiesNames.map((property, index) => (
+                        <TabsTrigger key={index} value={property}>{property}</TabsTrigger>
+                    ))}
+                </TabsList>
                 {propertiesNames.map((property, index) => (
-                    <>
-                        <a role="tab" onClick={() => setCurrActive(index)} key={index} className={currActive === index ? "tab tab-active [--tab-bg:white] dark:[--tab-bg:#1d232a]" : 'tab'}>{property}</a>
-                        <div role="tabpanel" className="tab-content dark:bg-base-100 border-base-300 rounded-box p-6 min-h-[400px]">
-                            {properties[currActive].address}
-                        </div>
-                    </>
+                    <TabsContent key={index} value={property} className="dark:bg-base-100 border-base-300 rounded-box p-6 min-h-[400px]">
+                        {property}
+                    </TabsContent>
                 ))}
-            </div>
+            </Tabs>}
         </main>
     );
 }
