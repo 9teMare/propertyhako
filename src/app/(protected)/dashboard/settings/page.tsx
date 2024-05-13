@@ -12,9 +12,11 @@ export default function Page() {
     const role = useUserStore((state) => state.role);
 
     return (
-        <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white h-screen relative">
-            <div className="space-y-2">
+        <main className="flex flex-1 flex-col gap-6 p-6 text-black dark:text-white h-screen overflow-y-auto">
+            <div className="justify-between flex w-full">
                 <h1 className="text-2xl font-bold">Settings</h1>
+
+                <Logout />
             </div>
             <div className="grid gap-6">
                 {Object.entries(user!).map(([key, value], index) => {
@@ -40,10 +42,6 @@ export default function Page() {
                         <CardDescription>{role}</CardDescription>
                     </CardHeader>
                 </Card>
-            </div>
-
-            <div className="absolute bottom-6 right-6">
-                <Logout />
             </div>
         </main>
     );

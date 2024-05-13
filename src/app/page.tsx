@@ -18,7 +18,7 @@ export default function Page() {
                                 <h1 className="w-full drop-shadow-lg text-center text-4xl leading-[3rem] font-bold tracking-tight sm:text-5xl sm:leading-[4rem] lg:text-6xl lg:leading-[5rem] brand animate-gradient-x">
                                     PropertyHako
                                 </h1>
-                                <ThemeToggle className="stroke-pink-500 stroke-[3px]" />
+                                <ThemeToggle />
                             </span>
                         </span>
 

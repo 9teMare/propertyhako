@@ -103,7 +103,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     <BookIcon className="h-4 w-4" />
                     My Properties
                 </Link>
-                <Link className={selectedClassName("my")} href="/dashboard/my">
+                <Link className={selectedClassName("negotiations")} href="/dashboard/negotiations">
                     <User2Icon className="h-4 w-4" />
                     Negotiations
                 </Link>
@@ -130,7 +130,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     <FoldersIcon className="h-4 w-4" />
                     My applications
                 </Link>
-                <Link className={selectedClassName("my")} href="/dashboard/profile">
+                <Link className={selectedClassName("profile")} href="/dashboard/profile">
                     <User2Icon className="h-4 w-4" />
                     My Profile
                 </Link>
@@ -166,7 +166,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
                                 <div className="flex justify-center items-center">
                                     <h2 className="text-lg font-bold brand animate-gradient-x line-clamp-1">PropertyHako</h2>
-                                    <ThemeToggle className="h-[1.5rem] w-[1.5rem] stroke-pink-500" />
+                                    <ThemeToggle className="h-[1.5rem] w-[1.5rem] rounded-full" />
                                 </div>
                             </div>
 
