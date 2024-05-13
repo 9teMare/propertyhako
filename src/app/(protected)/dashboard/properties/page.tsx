@@ -20,13 +20,16 @@ import PropertyCard from "../plaza/property-card";
 export default function PropertiesPage() {
     const [properties, setProperties] = useState<PropertyProps[]>();
     const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
-    const [currName, setCurrName] = useState<string>('');
-    const [currAddress, setCurrAddress] = useState<string>('');
-    const [currPrice, setCurrPrice] = useState<number>(0);
-    const [currImageUrls, setCurrImageUrls] = useState<string[]>([]);
-    const [currBedrooms, setCurrBedrooms] = useState<number>(0);
-    const [currBathrooms, setCurrBathrooms] = useState<number>(0);
-    const [currArea, setCurrArea] = useState<number>(0);
+    const [currProperty, setCurrProperty] = useState({
+        name: '',
+        address: '',
+        price: 0,
+        imageUrls: [],
+        bedrooms: 0,
+        bathrooms: 0,
+        area: 0,
+    });
+
     const [currStep, setCurrStep] = useState<number>(0);
     const [currCriteria, setCurrCriteria] = useState<PropertyProps['criteria']>({
         ageGroups: '',
@@ -66,13 +69,15 @@ export default function PropertiesPage() {
     const handleCancel = () => {
         setCurrStep(0);
         setIsEditModalOpen(false);
-        setCurrName('');
-        setCurrAddress('');
-        setCurrPrice(0);
-        // setCurrImageUrl('');
-        setCurrBedrooms(0);
-        setCurrBathrooms(0);
-        setCurrArea(0);
+        setCurrProperty({
+            name: '',
+            address: '',
+            price: 0,
+            imageUrls: [],
+            bedrooms: 0,
+            bathrooms: 0,
+            area: 0,
+        });
         setCurrCriteria({
             ageGroups: '',
             occupations: '',
@@ -93,13 +98,13 @@ export default function PropertiesPage() {
                 key,
                 data: {
                     user_id: user?.owner,
-                    name: currName,
-                    address: currAddress,
-                    price: currPrice,
-                    imageUrls: currImageUrls,
-                    bedrooms: currBedrooms,
-                    bathrooms: currBathrooms,
-                    area: currArea,
+                    name: currProperty.name,
+                    address: currProperty.address,
+                    price: currProperty.price,
+                    imageUrls: currProperty.imageUrls,
+                    bedrooms: currProperty.bedrooms,
+                    bathrooms: currProperty.bathrooms,
+                    area: currProperty.area,
                     criteria: currCriteria,
                     isPublished: isPublished,
                     isDeleted: false
@@ -110,13 +115,13 @@ export default function PropertiesPage() {
                 if (res) {
                     setProperties([...(properties ?? []), {
                         id: key,
-                        name: currName,
-                        address: currAddress,
-                        price: currPrice,
-                        imageUrls: currImageUrls,
-                        bedrooms: currBedrooms,
-                        bathrooms: currBathrooms,
-                        area: currArea,
+                        name: currProperty.name,
+                        address: currProperty.address,
+                        price: currProperty.price,
+                        imageUrls: currProperty.imageUrls,
+                        bedrooms: currProperty.bedrooms,
+                        bathrooms: currProperty.bathrooms,
+                        area: currProperty.area,
                         criteria: currCriteria,
                         isPublished: isPublished,
                         isDeleted: false
@@ -137,13 +142,73 @@ export default function PropertiesPage() {
             });
     };
 
-    const renderPropertyCard = (property: PropertyProps) => {
-        return (
-            <PropertyCard property={property} role={"landlord"} />
-        );
-    };
+    const handleOnClick = () => {
+        if (currStep == 2) {
+            handleAddProperty();
+        } else {
+            if ((!currProperty.name || currProperty.name == '') || (!currProperty.address || currProperty.address == '')
+                || currProperty.price == 0 || currProperty.area == 0 || currProperty.bedrooms == 0 || currProperty.bathrooms == 0) {
+                let description = "";
+                if (!currProperty.name || currProperty.name == '') {
+                    description += "Property Name, ";
+                }
+                if (!currProperty.address || currProperty.address == '') {
+                    description += "Address, ";
+                }
+                if (currProperty.price == 0) {
+                    description += "Price, ";
+                }
+                if (currProperty.area == 0) {
+                    description += "Area, ";
+                }
+                if (currProperty.bedrooms == 0) {
+                    description += "Bedrooms, ";
+                }
+                if (currProperty.bathrooms == 0) {
+                    description += "Bathrooms, ";
+                }
 
-    const renderAddPropertyCard = () => {
+                description = description.slice(0, -2) + " are required";
+                toast({
+                    title: "Please fill in all the fields before continue",
+                    description: description,
+                    duration: 2000,
+                })
+                return;
+            }
+
+            if (currStep == 1 && (!currCriteria.ageGroups || currCriteria.ageGroups == ''
+                || !currCriteria.occupations || currCriteria.occupations == ''
+                || !currCriteria.nationalities || currCriteria.nationalities == ''
+                || currCriteria.numberOfTenants == 0)
+            ) {
+                let description = "";
+                if (!currCriteria.ageGroups || currCriteria.ageGroups == '') {
+                    description += "Age Groups, ";
+                }
+                if (!currCriteria.occupations || currCriteria.occupations == '') {
+                    description += "Occupations, ";
+                }
+                if (!currCriteria.nationalities || currCriteria.nationalities == '') {
+                    description += "Nationalities, ";
+                }
+                if (currCriteria.numberOfTenants == 0) {
+                    description += "Number of Tenants, ";
+                }
+                description = description.slice(0, -2) + " are required";
+                toast({
+                    title: "Please fill in all the fields before continue",
+                    description: description,
+                    duration: 2000,
+                })
+                return;
+            }
+
+            setCurrStep(currStep + 1);
+        }
+    }
+
+    const AddPropertyCard = () => {
         return (
             <Card className="border border-dotted">
                 <CardHeader className="flex items-center justify-center h-full">
@@ -151,78 +216,23 @@ export default function PropertiesPage() {
                         {/* <Button variant="ghost" onClick={handleAddProperty}>
                             + Add a new property
                         </Button> */}
-                        {renderEditModal()}
+                        <EditModal />
                     </CardTitle>
                 </CardHeader>
             </Card>
         );
     };
 
-    const renderEditModal = () => {
-        const handleOnClick = () => {
-            if (currStep == 2) {
-                handleAddProperty();
-            } else {
-                if ((!currName || currName == '') || (!currAddress || currAddress == '') || currPrice == 0 || currArea == 0 || currBedrooms == 0 || currBathrooms == 0) {
-                    let description = "";
-                    if (!currName || currName == '') {
-                        description += "Property Name, ";
-                    }
-                    if (!currAddress || currAddress == '') {
-                        description += "Address, ";
-                    }
-                    if (currPrice == 0) {
-                        description += "Price, ";
-                    }
-                    if (currArea == 0) {
-                        description += "Area, ";
-                    }
-                    if (currBedrooms == 0) {
-                        description += "Bedrooms, ";
-                    }
-                    if (currBathrooms == 0) {
-                        description += "Bathrooms, ";
-                    }
-
-                    description = description.slice(0, -2) + " are required";
-                    toast({
-                        title: "Please fill in all the fields before continue",
-                        description: description,
-                        duration: 2000,
-                    })
-                    return;
-                }
-
-                if (currStep == 1 && (!currCriteria.ageGroups || currCriteria.ageGroups == ''
-                    || !currCriteria.occupations || currCriteria.occupations == ''
-                    || !currCriteria.nationalities || currCriteria.nationalities == ''
-                    || currCriteria.numberOfTenants == 0)
-                ) {
-                    let description = "";
-                    if (!currCriteria.ageGroups || currCriteria.ageGroups == '') {
-                        description += "Age Groups, ";
-                    }
-                    if (!currCriteria.occupations || currCriteria.occupations == '') {
-                        description += "Occupations, ";
-                    }
-                    if (!currCriteria.nationalities || currCriteria.nationalities == '') {
-                        description += "Nationalities, ";
-                    }
-                    if (currCriteria.numberOfTenants == 0) {
-                        description += "Number of Tenants, ";
-                    }
-                    description = description.slice(0, -2) + " are required";
-                    toast({
-                        title: "Please fill in all the fields before continue",
-                        description: description,
-                        duration: 2000,
-                    })
-                    return;
-                }
-
-                setCurrStep(currStep + 1);
-            }
-        }
+    const EditModal = () => {
+        const inputs = [
+            { label: 'Property Name', value: currProperty.name, setValue: (v: any) => setCurrProperty(prev => ({ ...prev, name: v })) },
+            { label: 'Address', value: currProperty.address, setValue: (v: any) => setCurrProperty(prev => ({ ...prev, address: v })) },
+            { label: 'Price', value: currProperty.price, setValue: (v: string) => setCurrProperty(prev => ({ ...prev, price: v ? parseInt(v) : 0 })) },
+            { label: 'Area', value: currProperty.area, setValue: (v: string) => setCurrProperty(prev => ({ ...prev, area: v ? parseInt(v) : 0 })) },
+            { label: 'Bedrooms', value: currProperty.bedrooms, setValue: (v: string) => setCurrProperty(prev => ({ ...prev, bedrooms: v ? parseInt(v) : 0 })) },
+            { label: 'Bathrooms', value: currProperty.bathrooms, setValue: (v: string) => setCurrProperty(prev => ({ ...prev, bathrooms: v ? parseInt(v) : 0 })) },
+            { label: 'Image URLs (separate by comma)', value: currProperty.imageUrls?.join(','), setValue: (v: any) => setCurrProperty(prev => ({ ...prev, imageUrls: v.split(',') })) },
+        ];
 
         const renderInput = (label: string, value: string | number, onChange: (e: any) => void, placeholder?: string) => {
             return (
@@ -243,13 +253,11 @@ export default function PropertiesPage() {
 
         const renderStepOne = () => {
             return <div className="grid gap-4 py-4">
-                {renderInput('Property Name', currName, (e) => setCurrName(e.target.value))}
-                {renderInput('Address', currAddress, (e) => setCurrAddress(e.target.value))}
-                {renderInput('Price', currPrice, (e) => setCurrPrice(e.target.value ? parseInt(e.target.value) : 0))}
-                {renderInput('Area', currArea, (e) => setCurrArea(e.target.value ? parseInt(e.target.value) : 0))}
-                {renderInput('Bedrooms', currBedrooms, (e) => setCurrBedrooms(e.target.value ? parseInt(e.target.value) : 0))}
-                {renderInput('Bathrooms', currBathrooms, (e) => setCurrBathrooms(e.target.value ? parseInt(e.target.value) : 0))}
-                {renderInput('Image URLs (separate by comma)', currImageUrls?.join(','), (e) => setCurrImageUrls(e.target.value.split(',')))}
+                <>
+                    {inputs.map((input, index) => (
+                        renderInput(input.label, input.value, (e) => input.setValue(e.target.value))
+                    ))}
+                </>
             </div>
         }
 
@@ -308,8 +316,11 @@ export default function PropertiesPage() {
 
     return (
         <div className="grid grid-cols-3 grid-rows-3 gap-2 p-4">
-            {properties?.map((property, index) => <div key={index}>{renderPropertyCard(property)}</div>)}
-            {renderAddPropertyCard()}
+            {properties?.map((property, index) =>
+                <div key={index}>
+                    <PropertyCard property={property} role={"landlord"} />
+                </div>)}
+            <AddPropertyCard />
         </div>
     );
 }

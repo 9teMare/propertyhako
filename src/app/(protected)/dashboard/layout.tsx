@@ -107,9 +107,9 @@ export default function Layout({ children }: { children: ReactNode }) {
                     <BookIcon className="h-4 w-4" />
                     My Properties
                 </Link>
-                <Link className={selectedClassName("negotiations")} href="/dashboard/negotiations">
+                <Link className={selectedClassName("communication")} href="/dashboard/communications">
                     <User2Icon className="h-4 w-4" />
-                    Negotiations
+                    Communications
                 </Link>
                 <Link className={selectedClassName("settings")} href="/dashboard/settings">
                     <SettingsIcon className="h-4 w-4" />
@@ -148,7 +148,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         const tenantRoutes = ["plaza", "applications", "profile", "settings"];
-        const landlordRoutes = ["properties", "negotiations", "settings"];
+        const landlordRoutes = ["properties", "communications", "settings"];
 
         if (role === "tenant" && !tenantRoutes.includes(selected)) {
             router.replace("/dashboard/plaza");
