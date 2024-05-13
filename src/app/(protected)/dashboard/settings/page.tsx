@@ -1,7 +1,7 @@
 "use client";
 
 import { Logout } from "@/components/logout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { AuthContext } from "@/providers/AuthProvider";
 import { useUserStore } from "@/stores/userStore";
 import dayjs from "dayjs";
