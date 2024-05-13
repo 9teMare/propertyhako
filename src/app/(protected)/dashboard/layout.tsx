@@ -146,6 +146,18 @@ export default function Layout({ children }: { children: ReactNode }) {
         );
     };
 
+    useEffect(() => {
+        const tenantRoutes = ["plaza", "applications", "profile", "settings"];
+        const landlordRoutes = ["properties", "negotiations", "settings"];
+
+        if (role === "tenant" && !tenantRoutes.includes(selected)) {
+            router.replace("/dashboard/plaza");
+        }
+        if (role === "landlord" && !landlordRoutes.includes(selected)) {
+            router.replace("/dashboard");
+        }
+    }, [role, router, selected]);
+
     return (
         <>
             {!isOnboard ? (
