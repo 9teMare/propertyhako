@@ -1,4 +1,5 @@
 "use client";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
 import { AuthContext } from "@/providers/AuthProvider";
 import { PropertyProps } from "@/types/property";
